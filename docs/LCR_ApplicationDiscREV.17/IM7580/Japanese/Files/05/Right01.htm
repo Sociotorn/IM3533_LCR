@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<link rel="stylesheet" href="../../../Common/css/style.css" type="text/css">
+		<link rel="stylesheet" href="../../../Common/css/style05.css" type="text/css">
+		<title></title>
+</head>
+<body bgcolor="#fce5c6">
+
+	<h2>動作がおかしいとき</h2>
+	<div class="contents">
+		<p>動作がおかしい場合は、次の症状に該当しないか確認してください。</p>
+		<p>特定のインターフェースの記載がない原因・処置は、RS-232C、GP-IB、USB、LAN共通です。</p>
+	</div>
+
+	<h3>通信がまったくできない</h3>
+	<div class="contents">
+		<ul>
+			<li>ケーブルはきちんと接続されていますか？</li>
+			<li>接続しているすべての機器の電源がONになっていますか？</li>
+			<li>ケーブルは、正しいものを使用していますか？</li>
+			<li>通信条件の設定はあっていますか？&nbsp;【RS-232C】</li>
+			<li>本器のアドレス設定はあっていますか？&nbsp;【GP-IB】</li>
+			<li>他の機器のアドレスが同じになっていませんか？&nbsp;【GP-IB】</li>
+			<li>他のネットワーク機器とIPアドレスが同じになっていませんか？&nbsp;【LAN】</li>
+			<li>USBドライバのインストールは正常に完了していますか？&nbsp;【USB】</li>
+		</ul>
+	</div>
+
+	<h3>サービス・リクエストが発生しないときがある&nbsp;【GP-IB】</h3>
+	<div class="contents">
+		<ul>
+			<li>サービス・リクエスト・イネーブル・レジスタ、および各イベント・ステータス・イネーブルレジスタは正しく設定されていますか？</li>
+			<li>SRQ処理サブルーチンの最後で<span><a href="../03/Right03.htm#*CLS" target="_self">*CLS</a></span>コマンドでイベント・レジスタをすべてクリアしてください。
+			    イベントのビットが1回クリアされないと、同じイベントではサービス・リクエストは発生しません。</li>
+		</ul>
+	</div>
+
+	<h3>ハードウェアハンドシェイクの動作がおかしい&nbsp;【RS-232C】</h3>
+	<div class="contents">
+		<ul>
+			<li>CA（RTS）、CB（CTS）がショートしているケーブルを使用していませんか？CA (RTS), CB (CTS)がショートしていないクロスケーブルを使用してください。</li>
+		</ul>
+	</div>
+
+</body>
+</html>

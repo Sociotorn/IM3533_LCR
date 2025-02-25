@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<link rel="stylesheet" href="../../../Common/css/style.css" type="text/css">
+		<link rel="stylesheet" href="../../../Common/css/style01.css" type="text/css">
+		<title></title>
+</head>
+<body bgcolor="#ffe2e2">
+
+	<h2>About Data Transmission Formats</h2>
+    <div class="contents">
+    	<p>With IM3533/IM3533-01, two types of data transmission format are supported: ASCII and binary.</p>
+        <p>There is also long format mode which allows 10 digits for the number of effective digits of measurement values.</p>
+        <p>The data transmission speed differs depending on the data transfer format or long format setting.</p>
+    </div>
+    
+    <h3>Measurement Value, Measurement Signal, and Monitor Value Formats</h3>
+    <div class="contents">
+    	<p><img src="./img/fig3_1.png"></p>
+	</div>
+
+    <h3>COMP Format</h3>
+    <div class="contents">
+    	<p><img src="./img/fig3_2.png"></p>
+	</div>
+
+    <h3>BIN format</h3>
+    <div class="contents">
+    	<p><img src="./img/fig3_3.png"></p>
+	</div>
+    
+    <h4>About signs</h4>
+    <p class="sub">When a value is negative, a minus &quot;-&quot; sign is added before the measurement value.</p>
+    <p class="sub">When a value is positive, a space &quot;&nbsp;&quot; sign is added before the measurement value.</p>
+    <p class="sub">However, a space is not added in the following cases.</p>
+    <div class="sub">
+		<ul>
+        	<li>Value when long format is on</li>
+            <li>V/ CV/ CC value</li>
+            <li>Monitor value</li>
+        </ul>    
+    </div>
+    
+    <h3>Binary Format</h3>
+    	<div class="contents">
+            <p><span>If a <a href="../03/Right03.htm#:FORMat:DATA" target="_self">:FORMat:DATA REAL</a></span> command is executed, the IM3533/IM3533-01 transmits the data in binary format.</p>
+            <p>The data portion of the commands/queries shown below is returned in binary format.</p>
+            
+            <ul>
+            <li><span><a href="../03/Right04.htm" target="_self">:MEASure?</a></span>query response</li>
+            <li class="nomarker">See: <span><a href="../03/Right04.htm" target="_self">:MEASure?</a></span> query message reference</li>
+            
+            <li>Measurement value data in automatic output mode</li>
+            <li class="nomarker">See: <span><a href="../03/Right04.htm" target="_self">:MEASure?</a></span> query message reference</li>
+            
+            <li><span><a href="../03/Right03.htm#:MEMory" target="_self">:MEMory?</a></span>query response</li>
+            <li class="nomarker">See: <span><a href="../03/Right03.htm#:MEMory" target="_self">:MEMory?</a></span> query message reference</li>
+    
+            <li><span><a href="../03/Right03.htm#:MEASure:POINt" target="_self">:MEASure:POINt?</a></span>query response</li>
+            <li class="nomarker">See: <span><a href="../03/Right03.htm#:MEASure:POINt" target="_self">:MEASure:POINt?</a></span> query message reference</li>
+    
+            <li><span><a href="../03/Right03.htm#:MEASure:CONTinuous:COMParator" target="_self">:MEASure:CONTinuous:COMParator?</a></span>query response</li>
+            <li class="nomarker">See: <span><a href="../03/Right03.htm#:MEASure:CONTinuous:COMParator" target="_self">:MEASure:CONTinuous:COMParator?</a></span> query message reference</li>
+    
+            </ul>
+			<br>
+			<p><span>Example of response data format</span></p>
+            
+            <p><img src="./img/fig3_4.png"></p>      
+            <p>The response data consist of the header portion, data portion, and terminator.</p>
+            <p>The following describes the format of each portion.</p>
+            <p>For details on the response data format.</p>   
+            
+            <h4>Header portion</h4>
+                <p class="sub">The header portion consists of the three parameters shown below.</p>
+                <div class="sub">
+                    <table>
+                        <tr>
+                            <td>&quot;#&quot;(1byte)</td>
+                            <td>Sign used for data output format</td>
+                        </tr>
+                        <tr>
+                            <td>&quot;Number of digits for &lt;Number of bytes to transfer&gt;&quot;(1byte)</td>
+                            <td>Number of digits for number of bytes of data portion</td>
+                        </tr>
+                        <tr>
+                            <td>&quot;Number of bytes to transfer (number of digits byte)&quot;</td>
+                            <td>Number of bytes of data portion</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <p class="sub">When the data portion is 13 bytes, it is as shown below.</p>
+                <p class="sub"><span>#213</span></p>
+                <br>
+                
+                <p class="sub">The number of bytes of the data portion for the response data of the <span><a href="../03/Right04.htm" target="_self">:MEASure?</a></span> query in ANALYZER mode or the response data of the <span><a href="../03/Right03.htm#:MEMory" target="_self">:MEMory?</a></span> query is the total for n sweep points or for n measurement values.</p>
+                <br>
+                <p class="sub">&quot; The number of digits for &lt;Number of bytes to transfer&gt;&quot; is fixed as shown below.</p>
+                <div class="sub">
+                	<table>
+                    	<tr>
+                        	<td><span><a href="../03/Right04.htm" target="_self">:MEASure?</a></span> query in SWEEP measurement</td>
+                        	<td>&quot;5&quot;digits</td>
+                        </tr>
+                    	<tr>
+                        	<td><span><a href="../03/Right03.htm#:MEMory" target="_self">:MEMory?</a></span> query:</td>
+                        	<td>&quot;7&quot;digits</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <p class="sub">Therefore, if the measurement value of one 14-byte measurement value data is 200 sweep points and if 200 items are stored to memory, the number of bytes to transfer is 2,800 bytes, and the header portion is as shown below.</p>
+                                <div class="sub">
+                <table>
+                    	<tr>
+                        	<td><span><a href="../03/Right04.htm" target="_self">:MEASure?</a></span> query in ANALYZER mode</td>
+                        	<td>&quot;#502800&quot;</td>
+                        </tr>
+                    	<tr>
+                        	<td><span><a href="../03/Right03.htm#:MEMory" target="_self">:MEMory?</a></span>query</td>
+                        	<td>&quot;#70002800&quot;</td>
+                        </tr>
+                    </table>
+                </div>
+            
+
+            <h4>Data portion</h4>
+            <p class="sub">The data portion returns the data of the parameters set in the <span><a href="../03/Right03.htm#:MEASure:VALid" target="_self">:MEASure:VALid</a></span> and <span><a href="../03/Right03.htm#:MEASure:ITEM" target="_self">:MEASure:ITEM</a></span> commands in the same way as with ACSII format.</p>
+            <p class="sub">See: <span><a href="../03/Right04.htm" target="_self">:MEASure?</a></span> query message reference or <span><a href="../03/Right03.htm#:MEMory" target="_self">:MEMory?</a></span> query message reference</p>
+
+            <h4>Message Terminator</h4>
+            <p class="sub">A message terminator is added in accordance with the instrument settings.</p>
+            
+		</div>
+
+</body>
+</html>
+

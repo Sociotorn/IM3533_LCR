@@ -1,0 +1,208 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" href="../../../Common/css/style.css" type="text/css">
+	<link rel="stylesheet" href="../../../Common/css/style03.css" type="text/css">
+	<title></title>
+	<style></style>
+</head>
+
+<body>
+	<h3 id=:"MEASure"><!-- -------------------------------------------------------------------- -->				
+		Querying measurement data			
+		<img alt="LCR" src="../../../../Common/img/icon_lcr.png">			
+		<img alt="ANALYZER" src="../../../../Common/img/icon_analyzer.png">			
+		<img alt="CONTINUOUS" src="../../../../Common/img/icon_continuous.png">			
+	</h3>				
+	<table class="cmd">				
+		<tbody><tr>			
+			<td class="cmd_01" rowspan="4"><p class="sec_01">Syntax</p></td>  		
+			<td class="cmd_02"><p class="sec_02">Command</p></td>		
+			<td class="cmd_03">		
+				<p class="sec_03">	
+				<span class="cmd_main">	
+						
+				</span>	
+					&nbsp;
+
+				<span class="cmd_para">	
+						
+				</span>	
+				</p>	
+			</td>		
+		</tr>			
+		<tr>			
+			<td class="cmd_02"><p class="sec_02">Query</p></td>		
+			<td class="cmd_03">		
+				<p class="sec_03">	
+				<span class="cmd_main">	
+					:MEASure? 
+				</span>	
+					&nbsp;
+				<span class="cmd_para">	
+					&lt;no data/ ALL&gt;
+				</span>	
+					<br>
+					(ALL can be specified only in continuous measurement mode.)
+				</p>
+			</td>		
+		</tr>			
+		<tr>			
+			<td class="cmd_02"><p class="sec_02">Response</p></td>		
+			<td class="cmd_03">		
+				<p class="sec_03">	
+				<span class="cmd_para">	
+					&lt;Measurement data&gt;
+
+				</span>	
+					<br>
+					(The response format varies depending on the mode.)<br>
+					<h4>ASCII format</h4>
+					<span class="cmd_para">
+						&lt;LCR mode&gt;
+					</span>
+					<br>
+					<img border="1" alt="" src="img/fig_51.png" width="663" height="319" ><br>
+
+					<br>
+					<span class="cmd_para">
+						&lt;ANALYZER mode&gt;
+					</span>
+					<br>
+					<img src="./img/fig_52.png"><br>
+					<br>
+					<h4>Binary format</h4>
+					<span class="cmd_para">
+						&lt;LCR mode&gt;
+					</span>
+					<br>
+					<img src="./img/fig_54.png"><br>
+
+					<br>
+					<span class="cmd_para">
+						&lt;ANALYZER mode&gt;
+					</span>
+					<br>
+					<img src="./img/fig_55.png"><br>
+					<br>
+      <p></p>
+			</td>		
+		</tr>			
+		<tr>			
+			<td class="cmd_02"><p class="sec_02">Parameter</p></td>		
+			<td class="cmd_03">	
+				<p class="sec_03">	
+					<img src="./img/fig_42.png"><br>
+				</p>	
+			</td>		
+		</tr>			
+		<tr>			
+			<td class="cmd_01" rowspan="2"><p class="sec_01">Explanation</p></td>		
+			<td class="cmd_02"><p class="sec_02">Command</p></td>		
+			<td class="cmd_03">		
+				<p class="sec_03">	
+						
+				</p>	
+			</td> 		
+		</tr>			
+		<tr>			
+			<td class="cmd_02"><p class="sec_02">Query</p></td>		
+			<td class="cmd_03">		
+				<p class="sec_03">	
+					Returns the status, judgment results, measurement values, and panel number. Set the response content with the :MEASure:VALid command.<br>
+					       You can select the type of parameters to return with the
+:MEASure:ITEM command.<br>
+					For details, refer to the :MEASure:ITEM command.<br>
+                    Switching between ASCII mode and binary mode can be set with the :FORMat:DATA command.<br>
+					During continuous measurement, a message terminator or slash (/) is inserted for each single panel measurement.<br>
+					When :MEASure? : Message terminator<br>
+					When :MEASure? ALL : Slash (/)<br>
+					<img src="./img/fig_43.png"><br>
+				</p>	
+			</td>		
+		</tr>			
+		<tr>			
+			<td class="cmd_01" rowspan="3"><p class="sec_01">Example</p></td>		
+			<td class="cmd_02"><p class="sec_02">Command</p></td>		
+			<td class="cmd_03">		
+				<p class="sec_03">	
+				<span class="cmd_sub">	
+						
+				</span>	
+						
+				</p>	
+			</td>		
+		</tr>			
+		<tr>			
+			<td class="cmd_02"><p class="sec_02">Query</p></td>		
+			<td class="cmd_03">		
+				<p class="sec_03">	
+				<span class="cmd_sub">	
+						:MEASure?
+				</span>	
+				</p>	
+			</td>		
+		</tr>			
+		<tr>			
+			<td class="cmd_02"><p class="sec_02">Response</p></td>		
+			<td class="cmd_03">		
+				<p class="sec_03">	
+					<h4>ASCII format</h4>
+					<span class="cmd_para">
+						&lt;LCR mode&gt;
+					</span>
+					<br>
+					<img src="./img/fig_57.png"><br>
+					<br>
+					<span class="cmd_para">
+						&lt;ANALYZER mode&gt;
+					</span>
+					<br>
+					<img src="./img/fig_58.png"><br>
+					<br>
+					<h4>Binary format</h4>
+					<span class="cmd_para">
+						&lt;LCR mode&gt;
+					</span>
+					<br>
+					<img src="./img/fig_60.png"><br>
+					<br>
+					<span class="cmd_para">
+						&lt;ANALYZER mode&gt;
+					</span>
+					<br>
+					<img src="./img/fig_61.png"><br>
+					<br>
+      <p></p>	
+			</td>		
+		</tr>			
+		<tr>			
+			<td class="cmd_01"><p class="sec_01">注記</p></td>		
+			<td class="cmd_02"><p class="sec_02"></p></td>		
+			<td class="cmd_03">		
+				<p class="sec_03">	
+					In the query example, the following are set before sending the :MEASure? command.<br>
+					:MEASure:ITEM 0,0,0<br>
+					:MEASure:VALid 31
+				</p>	
+			</td>		
+		</tr>			
+						
+	</tbody></table><!-- -------------------------------------------------------------------- -->		
+	
+	<h3>Response(MEASure? or :MEMory?)</h3>
+	<h5>LCR mode/ANALYZER mode/CONTINUOUS mode</h5>
+	<table class="cmd">
+	<tr>
+		<td>
+			<img src="./img/fig_47.png">
+		</td>
+	</tr>
+	</table>
+
+<br>
+</body>
+
+</html>

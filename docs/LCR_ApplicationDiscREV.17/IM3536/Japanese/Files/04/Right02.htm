@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="../../../Common/css/style.css" type="text/css">    
+	<link rel="stylesheet" href="../../../Common/css/style04.css" type="text/css">    
+	<title></title>
+</head>
+
+<body bgcolor="#FFF7C9">
+	<h2>サンプルプログラムについて</h2>
+
+	<div class="sec">
+		<p>ここでご提供するサンプル・プログラムのソースはすべて著作権フリーです。</p>
+	</div>
+
+	<div class="sec">
+		<p><span class="uline">
+            サンプルプログラムによっては、最初に「*RST」コマンドを送り、本器の設定を初期化している場合があります。<br>
+            「*RST」コマンドを送るとパネルセーブを含めた全ての設定が消去されますので、サンプルプログラムを実行する際にはご注意ください。<br>
+            <br>
+			日置電機株式会社は、ここに記載されたされたソフトウェアを実行、使用したことにより発生したいかなる損害に関しても、<br>
+			責任を一切負いません。その旨、予めご了承のほど、お願いいたします。
+		</span></p>
+	</div>
+
+	<div class="sec">
+		<p>サンプルプログラムはすべてVisual Basic 2010で作られています。</p>
+		<p>Visual Basic、Visual Studioは米国Microsoft社の登録商標です。</p>
+		<p>MS、Microsoft、Windows、MS-DOSは米国Microsoft社の登録商標です。</p>
+	</div>
+
+	<h2>本体の設定と接続確認</h2>
+	<div class="sec">
+	    <ol>
+        	<li><a href="../../../../Common/manual/IM3570comJ.pdf">通信取扱説明書</a>に従ってUSBの接続と設定を行ってください。</li>
+            <li><a href="../02/Right01.htm">USBドライバ</a>のインストールを行ってください。</li>
+            <li>OSのデバイスマネージャーを起動し、COMポートを確認してください。</li>
+		</ol>
+	</div>
+    
+	<h2>サンプルプログラム1</h2>
+	<div class="sec">
+    	<p>このプログラムは、[測定]ボタンを押すとトリガや測定周波数などの設定を行った後、トリガをかけて測定値を取得します。</p>
+        <p><img src="./img/Serial_Sample1.png"></p>
+        <p class="download"><img src="./img/zip.png"><a href="./bin/Serial_Sample1.zip">ダウンロード</a></p>
+	</div>
+
+	<h2>サンプルプログラム2</h2>
+	<div class="sec">
+    	<p>このプログラムは、本器に接続してコマンドの送受信を行います。</p>
+		<p>コマンドの欄に送信したいコマンドを入力し、[送信]ボタンを押すと送信されます。</p>
+		<p>応答があるコマンド（?が含まれるコマンド）の場合は、テキストボックスに応答が表示されます。</p>
+        <p><img src="./img/Serial_Sample2.png"></p>
+        <p class="download"><img src="./img/zip.png"><a href="./bin/Serial_Sample2.zip">ダウンロード</a></p>
+	</div>
+
+	<h2>サンプルプログラム3</h2>
+	<div class="sec">
+    	<p>このプログラムは、LCRモードでオープン補正、ショート補正を行います。</p>
+		<p>[オープン補正の実行]または[ショート補正の実行]を押すと補正値を取得します。</p>
+		<p>補正値の取得には時間がかかるため、イベントステータスレジスタのCEMビットを監視し、補正が終わるまで待ちます。</p>
+        <p><img src="./img/Serial_Sample3.png"></p>
+        <p class="download"><img src="./img/zip.png"><a href="./bin/Serial_Sample3.zip">ダウンロード</a></p>
+	</div>
+
+	<h2>サンプルプログラム4</h2>
+	<div class="sec">
+    	<p>このプログラムは、LCRモードでコンパレータ測定を行い、測定値と判定結果を表示します。</p>
+        <p>上限値と下限値を設定し、[測定開始]を押してください。</p>
+        <p><img src="./img/Serial_Sample4.png"></p>
+        <p class="download"><img src="./img/zip.png"><a href="./bin/Serial_Sample4.zip">ダウンロード</a></p>
+	</div>
+
+	<h2>サンプルプログラム5</h2>
+	<div class="sec">
+    	<p>このプログラムは、[測定]ボタンを押すと、バイナリ通信モードに変更し、トリガをかけて測定値を取得します。</p>
+		<p>受信したバイナリデータをASCII文字列に変換します。</p>
+        <p><img src="./img/Serial_Sample5.png"></p>
+        <p class="download"><img src="./img/zip.png"><a href="./bin/Serial_Sample5.zip">ダウンロード</a></p>
+	</div>
+
+	<h2>サンプルプログラム6</h2>
+	<div class="sec">
+    	<p>このプログラムは、:HCOPy:DATA?クエリを使用して、測定画面をBMP形式で保存するプログラムです。</p>
+        <p><img src="./img/Serial_Sample7.png"></p>
+        <p class="download"><img src="./img/zip.png"><a href="./bin/Serial_Sample6.zip">ダウンロード</a></p>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+/*スタイルシート共通設定*/
+
+/* ------------------------------
+ ハイパーリンク
+------------------------------ */
+a:link
+{
+	color:#215dc6;
+	background-color:inherit;
+	text-decoration:none;
+}
+
+a:active
+{
+	color:#215dc6;
+	background-color:#CCDDEE;
+	text-decoration:none;
+}
+
+a:visited
+{
+	color:#a63d21;
+	background-color:inherit;
+	text-decoration:none;
+}
+
+a:hover
+{
+	color:#215dc6;
+	background-color:#CCDDEE;
+	text-decoration:underline;
+}
+
+/* ------------------------------
+ 全体
+------------------------------ */
+body{
+	margin:0px;						/*余白*/
+	padding:0px;					/*周囲の余白*/
+	line-height:1.4;				/*行間*/
+	color:#333;						/*文字色*/
+	font-family:Arial, sans-serif;	/*フォント種類*/
+	font-size:0.875em;				/*フォントサイズ*/
+}
+
+img{
+    border-style:none;
+}
+
+p.top{
+	margin:5px;
+	font-size:10.0pt;
+}
+
+pre{
+	margin:0;
+	padding:0;
+}
+
+/* ------------------------------
+ サイドバー
+------------------------------ */
+div.side_bar{
+	margin:5px;
+	padding:0;
+	width:175px;
+}
+
+div.side_bar_cts{
+	margin:10px 0px;
+	padding:2px;
+	background:#ffffff;
+}
+
+/* ------------------------------
+ ソースコード
+------------------------------ */
+div.prog{
+	margin:0;
+	padding:20px;
+	border:solid;
+	border-width:1px;
+
+}

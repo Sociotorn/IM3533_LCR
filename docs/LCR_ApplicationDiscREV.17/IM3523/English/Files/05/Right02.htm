@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<link rel="stylesheet" href="../../../Common/css/style.css" type="text/css">
+		<link rel="stylesheet" href="../../../Common/css/style05.css" type="text/css">
+		<title></title>
+</head>
+<body bgcolor="#fce5c6">
+
+	<h2>Troubleshooting Data Acquisition</h2>
+	<div class="contents">
+		<p>If a problem occurs with data acquisition, check the following items.</p>
+		<p>The causes and measures for items without a mark are common to RS-232C, GP-IB, USB, and LAN.</p>
+	</div>
+	
+	<h3>Communication cannot be performed properly.</h3>
+	<div class="contents">
+		<ul>
+			<li>Are the RS-232C settings (baud rate, data length, parity, and stop bit) of the IM3523 and computer the same?&nbsp;[RS-232C]</li>
+			<li>Set the message terminator (delimiter) of the controller properly.</li>
+			<li class="nomarker"><span>See <a href="../03/Right03.htm#:TRANsmit:TERMinator" target="_self">&quot;Message Terminator&quot;</a></span></li>
+		</ul>
+	</div>
+
+	<h3>The keys do not work after communication.</h3>
+	<div class="contents">
+		<ul>
+			<li>Press the LOCAL key on the panel of the instrument to cancel the remote state.</li>
+			<li>Is the LLO (local lock out) command being sent?&nbsp;[GP-IB]</li>
+			<li class="nomarker">Send the GTL command to switch to the local state.</li>
+		</ul>
+	</div>
+
+	<h3>A command was sent but the operation is not performed.</h3>
+	<div class="contents">
+		<ul>
+			<li>Use <span><a href="../03/Right03.htm#*ESR" target="_self">*ESR?</a></span> to view the contents of the standard event status register and check what the error is.</li>
+		</ul>
+	</div>
+
+	<h3>Several queries were sent, but only one response was returned.</h3>
+	<div class="contents">
+		<ul>
+			<li>Did an error occur?</li>
+			<li>Perform one read for each query sent. If you want to read the data in one go, use a message separator and include everything on one line.</li>
+		</ul>
+	</div>
+
+	<h3>The response message of the query differs from the indication on the panel.</h3>
+	<div class="contents">
+		<ul>
+			<li>The response message is created at the point in time when the instrument received the query, so it may not match the indication for the point in time when the data was read by the controller.</li>
+		</ul>
+	</div>
+
+	<h3>Sending the *TRG command results in a beep sound.</h3>
+	<div class="contents">
+		<ul>
+			<li>Is the trigger set to the internal trigger?</li>
+			<li>The <span><a href="../03/Right03.htm#*TRG" target="_self">*TRG</a></span> command is only valid for the external trigger setting. An execution error occurs with the internal trigger setting.</li>
+		</ul>
+	</div>
+
+</body>
+</html>

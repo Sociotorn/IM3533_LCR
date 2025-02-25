@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	<link rel="stylesheet" href="../../../Common/css/style.css" type="text/css">
+	<link rel="stylesheet" href="../../../Common/css/style03.css" type="text/css">
+	<title></title>
+	<style></style>
+</head>
+
+<body>
+	<h3 id=":MEASure"><!-- -------------------------------------------------------------------- -->				
+		測定データの問合せ			
+		<img src="../../../../Common/img/icon_lcr.png" alt="LCR">			
+		<img src="../../../../Common/img/icon_continuous.png" alt="CONTINUOUS">			
+	</h3>				
+	<table class="cmd">				
+		<tbody><tr>			
+			<td class="cmd_01" rowspan="4"><p class="sec_01">構文</p></td>  		
+			<td class="cmd_02"><p class="sec_02">コマンド</p></td>		
+			<td class="cmd_03">		
+				<p class="sec_03">	
+				<span class="cmd_main">	
+						
+				</span>	
+					&nbsp;
+
+				<span class="cmd_para">	
+						
+				</span>	
+				</p>	
+			</td>		
+		</tr>			
+		<tr>			
+			<td class="cmd_02"><p class="sec_02">クエリ</p></td>		
+			<td class="cmd_03">		
+				<p class="sec_03">	
+				<span class="cmd_main">	
+					:MEASure? 
+				</span>	
+					&nbsp;
+				<span class="cmd_para">	
+					&lt;データ無し/ ALL&gt;
+				</span>	
+					<br>
+					（ALLは連続測定モードの時のみ指定可能です）
+				</p>
+			</td>		
+		</tr>			
+		<tr>			
+			<td class="cmd_02"><p class="sec_02">応答</p></td>		
+			<td class="cmd_03">		
+				<p class="sec_03">	
+				<span class="cmd_para">	
+					&lt;測定結果&gt;
+
+				</span>	
+					<br>
+					（各モードによって応答フォーマットが変わります。）<br>
+					<h4>ASCII応答</h4>
+					<br>
+					<img src="./img/fig_40.png"><br>
+					<div class="note">
+						ACステータスは応答パラメータにZ、Y、PHASE、Cs、Cp、D、Ls、Lp、Q、Rs、G、Rp、X、Bのいずれかが含まれている場合に出力され、
+						DC ステータスはパラメータにRdcが含まれている場合に出力されます。
+					</div>
+					<br>
+					<h4>バイナリ応答</h4>
+					<br>
+					<img src="./img/fig_41.png"><br>
+					<div class="note">
+						ACステータスは応答パラメータにZ、Y、PHASE、Cs、Cp、D、Ls、Lp、Q、Rs、G、Rp、X、Bのいずれかが含まれている場合に出力され、
+						DC ステータスはパラメータにRdcが含まれている場合に出力されます。
+						バイナリデータはビッグエンディアンです。
+					</div>
+					<br>
+				</p>
+			</td>		
+		</tr>			
+		<tr>			
+			<td class="cmd_02"><p class="sec_02">パラメータ</p></td>		
+			<td class="cmd_03">	
+				<p class="sec_03">	
+					<img src="./img/fig_42.png"><br>
+				</p>	
+			</td>		
+		</tr>			
+		<tr>			
+			<td class="cmd_01" rowspan="2"><p class="sec_01">解説</p></td>		
+			<td class="cmd_02"><p class="sec_02">コマンド</p></td>		
+			<td class="cmd_03">		
+				<p class="sec_03">	
+						
+				</p>	
+			</td> 		
+		</tr>			
+		<tr>			
+			<td class="cmd_02"><p class="sec_02">クエリ</p></td>		
+			<td class="cmd_03">		
+				<p class="sec_03">	
+					ステータス、判定結果、測定値、パネルNo. を返します。応答内容は:MEASure:VALidコマンドで設定します。<br>
+					LCR で通常測定の時は、:MEASure:ITEM コマンドで返すパラメータの種類を選択できます。<br>
+					詳細は:MEASure:ITEM コマンドを参照してください。<br>
+					ASCIIモードとバイナリモードの切り替えは:FORMat:DATAコマンドで設定します。<br>
+					連続測定モードの時は、1 つのパネル測定ごとにメッセージターミネータまたはスラッシュ(/) が入ります。<br>
+					:MEASure? の場合…メッセージターミネータ<br>
+					:MEASure? ALLの場合…スラッシュ(/)<br>
+					<img src="./img/fig_43.png"><br>
+				</p>	
+			</td>		
+		</tr>			
+		<tr>			
+			<td class="cmd_01" rowspan="3"><p class="sec_01">例</p></td>		
+			<td class="cmd_02"><p class="sec_02">コマンド</p></td>		
+			<td class="cmd_03">		
+				<p class="sec_03">	
+				<span class="cmd_sub">	
+						
+				</span>	
+						
+				</p>	
+			</td>		
+		</tr>			
+		<tr>			
+			<td class="cmd_02"><p class="sec_02">クエリ</p></td>		
+			<td class="cmd_03">		
+				<p class="sec_03">	
+				<span class="cmd_sub">	
+						:MEASure?
+				</span>	
+				</p>	
+			</td>		
+		</tr>			
+		<tr>			
+			<td class="cmd_02"><p class="sec_02">応答</p></td>		
+			<td class="cmd_03">		
+				<p class="sec_03">	
+					<h4>ASCII応答</h4>
+					<br>
+					<img src="./img/fig_51.png"><br>
+					<br>
+					<h4>バイナリ応答</h4>
+					<br>
+					<img src="./img/fig_52.png"><br>	
+					<br>
+				</p>	
+			</td>		
+		</tr>			
+		<tr>			
+			<td class="cmd_01"><p class="sec_01">注記</p></td>		
+			<td class="cmd_02"><p class="sec_02"></p></td>		
+			<td class="cmd_03">		
+				<p class="sec_03">	
+					クエリ例は:MEASure? コマンドを送る前に、以下の設定を行っています。<br>
+					:MEASure:ITEM 0,0<br>
+					:MEASure:VALid 31
+				</p>	
+			</td>		
+		</tr>			
+						
+	</tbody></table><!-- -------------------------------------------------------------------- -->		
+	
+	<h3>MEASure?、:MEMory? の応答結果</h3>
+	<table class="cmd">
+	<tr>
+		<td>
+			<img src="./img/fig_47.png">
+		</td>
+	</tr>
+	</table>
+
+<br>
+</body>
+
+</html>

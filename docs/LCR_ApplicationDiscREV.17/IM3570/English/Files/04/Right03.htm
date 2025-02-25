@@ -1,0 +1,93 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="../../../Common/css/style.css" type="text/css">    
+	<link rel="stylesheet" href="../../../Common/css/style04.css" type="text/css">    
+	<title></title>
+</head>
+
+<body bgcolor="#FFF7C9">
+	<h2>About Sample program</h2>
+
+	<div class="sec">
+		<p>The following programs are provided without charge, for use entirely at your own risk.</p>
+	</div>
+
+	<div class="sec">
+		<p><span class="uline">
+            With some sample programs, the &quot;*RST&quot; command is sent first to initialize the settings of the instrument. <br>
+            When the “*RST” command is sent, all the settings including the panel save settings are deleted. Note this when you execute these sample programs. <br>
+            <br>
+			HIOKI disclaims any and all responsibility for any consequences arising out of use of this software. 
+		</span></p>
+	</div>
+
+	<div class="sec">
+		<p>Visual Basic and Visual Studio are registered trademarks or trademarks of Microsoft Corporation in the U.S.A. and other countries.</p>
+		<p>MS, Microsoft, Windows, MS-DOS, are registered trademarks or trademarks of Microsoft Corporation in the U.S.A. and other countries.</p>
+	</div>
+
+	<h2>Instrument Set and Connection Check</h2>
+	<div class="sec">
+	    <ol>
+        	<li>Connect and set a LAN according to the <a href="../../../../Common/manual/IM3570comE.pdf">communication instruction manual</a>.</li>
+            <li>Set the IP address of the PC.</li>
+		</ol>
+	</div>
+    
+	<h2>Sample program 1</h2>
+	<div class="sec">
+		<p>With this program, when the [Measure] button is pressed, the triggering and measurement frequency are set, and then the measured value is acquired after triggering. </p>
+        <p><img src="./img/LAN_Sample1.png"></p>
+        <p class="download"><img src="./img/zip.png"><a href="./bin/LAN_Sample1_IM3570.zip">Download</a></p>
+	</div>
+
+	<h2>Sample program 2</h2>
+	<div class="sec">
+		<p>With this program, commands are sent to and received from the connected instrument.</p>
+		<p>To send a command, enter the command to be sent in the command field and press the [Send] button.</p>
+		<p>For a command with a response (command that includes &quot;?&quot;), a response is displayed in the text field.</p>
+        <p><img src="./img/LAN_Sample2.png"></p>
+        <p class="download"><img src="./img/zip.png"><a href="./bin/LAN_Sample2_IM3570.zip">Download</a></p>
+	</div>
+
+	<h2>Sample program 3</h2>
+	<div class="sec">
+		<p>With this program, open-circuit compensation and short-circuit compensation are executed in the LCR mode.</p>
+		<p>Press [Execute open-circuit compensation] or [Execute short-circuit compensation] to acquire the compensation value.</p>
+		<p>As it takes time to acquire the compensation value, wait until the compensation is completed while monitoring the CEM bit of the event status resistor.</p>
+        <p><img src="./img/LAN_Sample3.png"></p>
+        <p class="download"><img src="./img/zip.png"><a href="./bin/LAN_Sample3_IM3570.zip">Download</a></p>
+	</div>
+
+	<h2>Sample program 4</h2>
+	<div class="sec">
+		<p>With this program, comparator measurement is executed in the LCR mode and the measured value and judgment result are displayed.</p>
+		<p>Set the upper and lower limit values and press [Measure].</p>
+        <p><img src="./img/LAN_Sample4.png"></p>
+        <p class="download"><img src="./img/zip.png"><a href="./bin/LAN_Sample4_IM3570.zip">Download</a></p>
+	</div>
+
+	<h2>Sample program 5</h2>
+	<div class="sec">
+		<p>With this program, when the [Measure] button is pressed, the instrument is changed to the binary communication mode and the measured value is acquired after triggering.</p>
+		<p>The received binary data are then converted to the ASCII character string.</p>
+        <p><img src="./img/LAN_Sample5.png"></p>
+        <p class="download"><img src="./img/zip.png"><a href="./bin/LAN_Sample5_IM3570.zip">Download</a></p>
+	</div>
+
+	<h2>Sample program 6</h2>
+	<div class="sec">
+		<p>With this program, sweep measurement is executed in the analyzer mode.</p>
+		<p>When you enter the sweep setting state and press the [Sweep Measure] button, the result is displayed in the text field.</p>
+		<p>Pressing the [Save] button saves the result in a text file.</p>
+        <p><img src="./img/LAN_Sample6.png"></p>
+        <p class="download"><img src="./img/zip.png"><a href="./bin/LAN_Sample6_IM3570.zip">Download</a></p>
+	</div>
+
+    
+</body>
+</html>

@@ -1,0 +1,30 @@
+h2{
+	margin:5px 5px;
+	padding:0px 10px;
+	color:#FFFFFF;
+	border:0px;
+	border-left:20px solid;
+	border-bottom:1px solid;
+	border-color:#ffffff #ffffff #999999 #3333CC;
+	background:#3399FF;
+}
+
+div.sec{
+	margin:10px 30px 30px 30px;
+}
+
+div.subsec{
+	margin-top:20px;
+}
+
+p{
+	margin:0;
+}
+
+span{
+	color:FF0000;
+	border-style:solid;
+	border-color:FF0000;
+	border-width:1px;
+}
+

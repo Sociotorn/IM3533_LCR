@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<link rel="stylesheet" href="../../../Common/css/style.css" type="text/css">
+		<link rel="stylesheet" href="../../../Common/css/style01.css" type="text/css">
+		<title></title>
+</head>
+<body bgcolor="#ffe2e2">
+	<h2>ステータス・バイト・レジスタ</h2>
+    <div class="contents">
+        <p>ステータス・バイト・レジスタには、イベント・レジスタと出力キューの情報がセットされています。</p>
+        <p>これらの情報の中からサービス・リクエスト・イネーブル・レジスタによって、更に必要なものを選択することができます。</p>
+        <p>選択された情報がセットされた場合は、ステータス・バイト・レジスタのビット6（MSS マスタ・サマリ・ステータス・ビット）がセットされ、SRQ（サービス・リクエスト）メッセージを発生し、これによりサービス・リクエストが発生します。</p>
+        <p><img src="./img/fig5_1.png"></p>
+        <p><img src="./img/fig5_2.png"></p>
+        <p class="note"><span class="note">RS-232C、USB、LANの場合は、ステータス・バイト・レジスタのビット4（MAV メッセージ・アベイラブル）はセットされません。</span></p>
+	</div>
+    
+    <h3>ステータス・バイト・レジスタ（STB）</h3>
+    	<div class="contents">
+        	<p>ステータス・バイト・レジスタとは、シリアル・ポールを行うときに、本器からコントローラに出力する8ビットのレジスタです。</p>
+			<p>サービス・リクエスト・イネーブル・レジスタで使用可能に設定されたビットのうち、ステータス・バイト・レジスタのビットが1つでも&quot;0&quot; から&quot;1&quot; になると、MSS ビットは&quot;1&quot; になります。</p>
+            <p>それと同時にSRQ ビットも&quot;1&quot; になり、サービス・リクエストが発生します。</p>
+			<br>
+            <p>SRQ ビットは、常にサービス・リクエストに同期しておりシリアル・ポールされるときにのみ読み出され、同時にクリアされます。</p>
+        	<p>MSS ビットは、&quot;*STB?&quot;クエリでのみ読み出されますが&quot;*CLS&quot;コマンドなどでイベントをクリアするまでクリアされません。</p>
+        	<p><img src="./img/fig5_3.png"></p>
+        </div>
+
+
+	<h3>サービス・リクエスト・イネーブル・レジスタ（SRER）</h3>
+    	<div class="contents">
+        	<p>サービス・リクエスト・イネーブル・レジスタは、各ビットを&quot;1&quot;に設定すると、ステータス・バイト・レジスタ内の対応するビットが使用可能になります。</p>
+        </div>
+
+
+</body>
+</html>

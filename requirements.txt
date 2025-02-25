@@ -1,0 +1,5 @@
+numpy
+
+pyserial
+# pyvisa
+# pyvisa-py

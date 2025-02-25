@@ -1,0 +1,195 @@
+
+h1{
+	margin:5px 5px;
+	
+}
+
+h2{
+	margin:5px 5px;
+	padding:10px 0 1px 10px;
+	border:0px;
+	border-left:20px solid;
+	border-bottom:1px solid;
+	border-color:#ffffff #ffffff #999999 #66CC66;
+	background-color:#CCFFCC;
+}
+
+h3{
+	margin:20px 20px 5px;
+	padding:10px 0 1px 10px;
+	font-size:1.5em;
+	border:0px;
+	border-left:20px solid;
+	border-bottom:1px solid;
+	border-color:#ffffff #ffffff #999999 #66CC66;
+	background-color:#CCFFCC;
+}
+
+h3 img{
+	vertical-align: text-top;
+}
+
+h4{
+	margin:2px;
+	padding:0;
+	font-size:1.3em;
+	border:0px;
+	border-left:20px solid;
+	border-bottom:1px solid;
+	border-color:#ffffff #ffffff #999999 #66CC66;
+	background-color:#CCFFCC;
+}
+
+h5{
+	margin:2px 25px;
+	padding:0;
+	font-size:1.3em;
+	border:0px;
+	border-left:20px solid;
+	border-bottom:1px solid;
+	border-color:#ffffff #ffffff #999999 #66CC66;
+	background-color:#CCFFCC;
+}
+
+div.note{
+	margin:10px;
+	padding:2px;
+	color:FF0000;
+	border-style:solid;
+	border-color:FF0000;
+	border-width:1px;
+}
+
+p.sec_01{
+	font-weight:bold;
+
+}
+
+p.sec_02{
+
+}
+
+p.sec_03{
+	margin:0;
+}
+
+p.para_detail{
+	margin:0 0 0 1em;
+	font-size:0.9em;
+}
+
+span.cmd_main{
+	font-weight:bold;
+	font-size:1.2em;
+	color:0066FF;
+}
+
+span.cmd_sub{
+	font-weight:bold;
+	color:0066FF;
+}
+
+span.cmd_para{
+	font-weight:bold;
+	color:#339900;
+}
+
+
+table.cmd{
+	margin:0 30px;
+    border: 1px #CCCCCC solid;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table.cmd th{
+    padding:0 5px;
+    border: #CCCCCC solid;
+    border-width: 0 0 1px 1px;
+    background: #F5F5F5;
+    font-weight: bold;
+    line-height: 120%;
+    text-align:left;
+}
+
+table.cmd td{
+    padding: 5px;
+    border: 1px #CCCCCC solid;
+    border-width: 0 0 1px 1px;
+}
+
+td.cmd_01{
+	width:3em;
+    text-align:center;
+	font-size:0.9em;
+}
+
+td.cmd_02{
+	width:6em;
+    text-align:center;
+	font-size:0.9em;
+}
+
+td.cmd_03{
+    text-align:left;
+	font-size:0.9em;
+}
+
+th.mode{
+	width:1em;
+}
+
+td.mode{
+	width:1em;
+}
+
+ul.note{
+	margin:0 0 0 2em;
+	padding:0;
+}
+
+/* ------------------------------
+ コマンド一覧（サイドバー）
+------------------------------ */
+p.cmd_list{
+	margin:0;
+	padding:0;
+}
+
+div.cmd_listitem{
+	margin:10px 0;
+	padding:2px;
+	background-color: #FFFFFF;
+	cursor:pointer;
+}
+
+div.cmd_list_on, div.cmd_list_off{
+
+}
+
+div.cmd_list_on div.cmd_listitem{
+
+}
+
+div.cmd_list_off div.cmd_listitem{
+
+}
+
+div.cmd_list_on ol{
+	display:auto;
+	margin-top:-10px;
+	margin-left:10px;
+	padding-left:10px;
+/*	list-style-type: square;*/
+	background-color: #EDFFE5;
+	font-size:0.9em;
+}
+
+div.cmd_list_off ol{
+	display:none;
+}
+
+div.cmd_list_on li{
+	margin-left:20px;
+
+}

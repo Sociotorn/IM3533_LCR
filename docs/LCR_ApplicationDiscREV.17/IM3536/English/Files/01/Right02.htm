@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<link rel="stylesheet" href="../../../Common/css/style.css" type="text/css">
+		<link rel="stylesheet" href="../../../Common/css/style01.css" type="text/css">
+		<title></title>
+</head>
+<body bgcolor="#ffe2e2">
+	<h2>About Message Formats</h2>
+    
+    <h3>Program Messages</h3>
+	<div class="contents">
+    	<p>Program messages can be divided into command messages and query messages.</p>
+
+        <h4>Command Message</h4>
+        <p class="sub">A command for controlling the unit such as an instruction to configure a setting or reset the settings of the device.</p>
+        <p class="sub"><img src="./img/fig2_1.png"></p>
+
+        <h4>Query Message</h4>
+        <p class="sub">A command for finding out the results of operations, results of measurements, or the current configuration
+state of the device.</p>
+        <p class="sub"><img src="./img/fig2_2.png"></p>
+    
+    </div>
+
+    <h3>Response Message</h3>
+	<div class="contents">
+    	<p>A response message is created after the syntax of a received query message has been checked.</p>
+    	<p>The &quot;HEADer&quot; command can be used to select whether there is a header.</p>
+ 		<br>
+        <p>Header ON&nbsp;&nbsp;&nbsp;&nbsp;<span>:FREQUENCY 1000</span></p>
+        <p>Header OFF&nbsp;&nbsp;<span>1000</span></p>
+        <p>(The current frequency is 1 kHz.)</p>
+        <br>
+        <ul>
+            <li>The header is set to OFF when the power is turned on.</li>
+            <li>If some sort of error was generated when a query message was received, a response message is not
+created for the query message.</li>
+        </ul>
+        
+    </div>
+
+    <h3>Command Syntax</h3>
+	<div class="contents">
+    	<p>Command names are selected for functions to be executed in a language that is as easy as possible to understand, and command names can also be shortened.</p>
+		<p>The unshortened form of a command name is known as the &quot;long form&quot; and the shortened form of a command name is know as the &quot;short form.&quot;</p>
+		<p>In this manual, uppercase characters are used for the short form part and lowercase characters are used for the remaining part. However, either uppercase or lowercase characters
+are acceptable.</p>
+        <div class="sub">
+            <table>
+              <tr>
+                <td><span>FREQUENCY</span></td>
+                <td>OK (long form)</td>
+              </tr>
+              <tr>
+                <td><span>FREQ</span></td>
+                <td>OK (long form)</td>
+              </tr>
+              <tr>
+                <td><span>FREQu </span></td>
+                <td>Error</td>
+              </tr>
+              <tr>
+                <td><span>FRE</span></td>
+                <td>Error</td>
+              </tr>
+            </table>
+          </div>
+        
+        <p>For response messages returned from the unit, uppercase characters and the long form are used.</p>
+    </div>
+
+    <h3>Header</h3>
+	<div class="contents">
+    	<p>The header indicates what is to be controlled. Program messages must have a header.</p>
+        <h4>Command Program Headers</h4>
+        <p class="sub">There are three types of headers: simple command, compound command, and common command.</p>
+        <div class="sub">
+        	<ul>
+            <li>Simple Command Header</li>
+            <li class="nomarker">Simple command headers contain a single word beginning with an alphabetic character.</li>
+            <li class="nomarker"><span>:HEADer</span></li>
+            
+            <li>Compound Command Header</li>
+            <li class="nomarker">Compound command headers contain multiple simple command headers separated by colons &quot;:&quot;.</li>
+            <li class="nomarker"><span>:BEEPer:KEY</span></li>
+            
+            <li>Common Command Header</li>
+            <li class="nomarker">Common command headers begin with an asterisk &quot;*&quot; to indicate the commands are common
+commands.</li>
+            <li class="nomarker">(As specified in IEEE488.2)</li>
+            <li class="nomarker"><span>*RST</span></li>
+            
+            </ul>
+        
+        </div>
+        
+        <h4>Query Program Header</h4>
+	        <p class="sub">This is used for finding out the results of operations performed in response to device commands, the results of measurements, or the current configuration state of the device.</p>
+            <p class="sub">A program header is identified as a query if a question mark &quot;?&quot; is added at the end as shown in the example below.</p>
+            <p class="sub"><span>:FREQuency?</span></p>
+    </div>
+
+    <h3>Message Terminator</h3>
+	<div class="contents">
+    	<p>A message terminator indicates the end of a command.</p>
+        <p>The unit accepts the following as message terminators.</p>
+		<p><img src="./img//fig2_3.png"></p>
+        <p class="note"><span class="note">The Model IM3536 unit analyzes a message after it has confirmed the message terminator.</span></p>
+        <p>Depending on the interface setting, the following can be selected as terminators of response messages.</p>
+        <p><img src="./img/fig2_4.png"></p>
+    </div>
+
+    <h3>Separator</h3>
+	<div class="contents">
+    	<h4>Message Unit Separator (Semicolon)</h4>
+		<p class="sub">Semicolons are used as separators when executing compound messages.</p>    
+		<p class="sub">Linking multiple messages by semicolons &quot;;&quot; enables a single line to be used to describe a compound command.</p>    
+		<p class="sub"><img src="./img/fig2_5.png"></p>    
+        <p class="sub">If a command error occurs when messages are described in succession, the messages from the error to the terminator are not executed.</p>
+        <p class="sub">(Example) If <span>:RAN:AUTO ON;:BEEPer:KEY ON;*IDN?</span> is executed and <span>:RAN:AUTO</span> is a command error, <span>:BEEPer:KEY ON;*IDN?</span> following the error will also not be executed</p>
+
+    	<h4>Message Unit Separator (Space)</h4>
+		<p class="sub">A space is used as a separator to differentiate the header and data section. Add a space ( ) between the header and data section.</p>
+        <p class="sub"><img src="./img/fig2_6.png"></p>
+        
+
+    	<h4>Message Unit Separator (Comma)</h4>
+		<p class="sub">In a message containing multiple data items, commas are required to separate the data items from one another.</p>
+        <p class="sub"><img src="./img/fig2_7.png"></p>
+    </div>
+    
+
+    <h3>Data Section</h3>
+	<div class="contents">
+    	<p>A data section indicates the content of a command.</p>
+        <p>In the unit, character data and decimal numeric data are used for data sections, and use differs depending on the command.</p>
+        <h4>Character Data</h4>
+		<p class="sub">Character data begins with an alphanumeric character and consists of alphabetic characters and numbers. Both uppercase and lowercase characters are acceptable, but uppercase characters are always used for response messages from the unit.</p>
+        <p class="sub"><span>:TRIGger INTernal</span></p>
+
+        <h4>Decimal Numeric Data</h4>
+        <p class="sub">There are three numeric data formats: NR1, NR2, and NR3. </p>
+        <p class="sub">Both signed numeric and unsigned numeric values are acceptable for each of these formats.</p>
+        <p class="sub">Unsigned numeric values are treated as positive numeric values.</p>
+        <p class="sub">Furthermore, if the accuracy of numeric values exceeds that capable of being handled by the unit, the numeric values are rounded off.</p>
+        <div class="sub">
+        	<table>
+              <tr>
+              	<td>NR1</td>
+              	<td>Integer data (Example: +12, -23, 34)</td>
+              </tr>
+              <tr>
+              	<td>NR2</td>
+              	<td>Fixed-point data (Example:+1.23, -23.45, 3.456)</td>
+              </tr>
+              <tr>
+              	<td>NR3</td>
+              	<td>Floating-point representation exponent data (Example:+1.0E-2, -2.3E+4)</td>
+              </tr>
+            </table>
+        </div>
+       
+        <p class="sub">The format that includes all three of the above types is referred to as the NRf format.</p>
+        <p class="sub">The NRf format is accepted by the unit.</p>
+        <br>
+        <p class="sub">For response data, the format is specified separately for each command and the data is sent in that format.</p>
+         <p class="sub"><span>:RANGe 6</span></p>
+         <p class="sub"><span>:LEVel:VOLTage 0.5</span></p>
+         
+         <div class="sub">
+	         <p class="note"><span class="note">For commands with data, make every effort to enter the data in the specified format.</span></p>
+         </div>
+    </div>
+
+    <h3>Omitting Compound Command Headers</h3>
+	<div class="contents">
+    	<p>When compound commands contain common initial parts (example:<span>:BEEPer:KEY</span>, ,<span>:BEEPer:JUDGment</span>), the common initial part (example:<span>:BEEPer:</span>) can be omitted just for subsequent commands.</p>
+        <p>The common initial part is known as the &quot;current path,&quot; and until cleared, the current paths of subsequent
+commands are determined to have been omitted when analysis is performed.</p>
+        <p>The following shows an example of the procedure for using current paths.</p>
+        <p><img src="./img/fig2_8.png"></p>
+        <p>The current path is cleared when the power is turned on, the interface type is changed, the device is cleared (only for GP-IB), or upon detection of a colon &quot;:&quot; at the beginning of a command or a message terminator.</p>
+        <p>Common command messages can be executed regardless of the current path. Furthermore, the current path is not affected.</p>
+        <p>A colon does not need to be added to the beginning of simple and compound command headers. However, Hioki recommends adding a colon to the beginning of these headers to prevent them from being
+mixed up with headers that have omissions and to prevent an incorrect operation from being performed.</p>
+    </div>
+
+</body>
+</html>

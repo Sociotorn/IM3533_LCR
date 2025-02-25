@@ -1,0 +1,284 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="../../../Common/css/style.css" type="text/css">    
+	<link rel="stylesheet" href="../../../Common/css/style04.css" type="text/css">    
+	<title></title>
+</head>
+
+<body bgcolor="#FFF7C9">
+	<h2>About Sample program</h2>
+
+	<div class="sec">
+		<p>The following programs are provided without charge, for use entirely at your own risk.</p>
+	</div>
+
+	<div class="sec">
+		<p><span class="uline">
+			HIOKI disclaims any and all responsibility for any consequences arising out of use of this software.
+		</span></p>
+	</div>
+
+	<div class="sec">
+		<p>Visual Basic and Visual Studio are registered trademarks or trademarks of Microsoft Corporation in the U.S.A. and other countries.</p>
+		<p>MS, Microsoft, Windows, MS-DOS, are registered trademarks or trademarks of Microsoft Corporation in the U.S.A. and other countries.</p>
+	</div>
+
+    <h2>Procedure for creating a Program (Visual Basic2010 Express Edition)</h2>
+    <div class="sec">
+		<p>This section describes an example of how to use the Windows development language Visual Basic2010 Express Edition 
+        to operate the IM7580 unit from a PC via RS-232C, incorporate measurement values, 
+        and save measurement values to a file. (When using RS-232C, the Z3001 RS-232C interface is additionally required.)</p>
+		<p>Visual Basic2010 is referred to as VB2010 hereafter.</p>
+		<span>Depending on the environment of the PC and VB2010, the procedure may differ slightly from the one described here.
+        For a detailed explanation on how to use VB2010, refer to the instruction manual or Help of VB2010.</span>
+    </div>
+
+	<div class="sec">
+		<div class="subsec">
+			<ol>
+				<li class="bd"><p class="bd">Create a new project.</p>
+				<ol>
+                	<li class="normal">
+					<div class="subsec">
+						<p>Startup VB2010.</p>
+					</div>
+                    </li>
+					
+                    <li class="normal">
+					<div class="subsec">
+						<p>Select [File] - [New Project] .</p>
+						<img src="./img/fig_01.png">
+					</div>
+					</li>
+                    
+                    <li class="normal">
+					<div class="subsec">
+						<p>Select [Windows Forms Application] from the templates.</p>
+						<img src="./img/fig_02.png">
+					</div>
+                    </li>
+					
+                    <li class="normal">
+					<div class="subsec">
+						<p>Click [OK].</p>
+					</div>
+                    </li>
+				</ol>
+                </li>
+
+				<li class="bd"><p class="bd">Place a button.</p>
+				<ol>
+	                <li class="normal">
+					<div class="subsec">
+						<p>Click [Button] from [Common Controls] of [Toolbox].</p>
+					</div>
+                   	</li>
+
+	                <li class="normal">
+					<div class="subsec">
+						<p>Drag and drop the button onto the form layout screen.</p>
+						<img src="./img/fig_03.png">
+					</div>
+                    </li>
+
+	                <li class="normal">
+					<div class="subsec">
+						<p>Change [Text] to &quot;Start Measurement&quot; from the Properties window.</p>
+						<img src="./img/fig_04.png">
+					</div>
+                    </li>
+
+	                <li class="normal">
+					<div class="subsec">
+						<p>The [Start Measurement] is placed on the form.</p>
+						<img src="./img/fig_05.png">
+					</div>
+                    </li>
+				</ol>
+                </li>
+
+				<li class="bd"><p class="bd">Place a serial communication component.</p>
+				<ol>
+	                <li class="normal">
+					<div class="subsec">
+						<p>Click [SerialPort] from [Components] of [Toolbox].</p>
+					</div>
+                    </li>
+				
+	                <li class="normal">
+					<div class="subsec">
+						<p>Drag and drop the [SerialPort] component onto the form layout screen.</p>
+						<img src="./img/fig_06.png">
+					</div>
+                    </li>
+
+	                <li class="normal">
+					<div class="subsec">
+						<p>Change [PortName] to the port name to use for communication from the properties window.</p>
+						<img src="./img/fig_07.png">
+						<p class="normal"><span>Check the port to use for communication beforehand.</span></p>
+					</div>
+                    </li>
+				</ol>
+                </li>
+
+				<li class="bd"><p class="bd">Describe the code.</p>
+				<ol>
+	                <li class="normal">
+					<div class="subsec">
+						<p>Double-click the placed button to display the code editor.</p>
+						<img src="./img/fig_08.png">
+					</div>
+                    </li>
+				
+	                <li class="normal">
+					<div class="subsec">
+						<p>Enter the sample program into the code editor.</p>
+						<img src="./img/fig_09.png">
+					</div>
+                    </li>
+
+	                <li class="normal">
+					<div class="subsec">
+						<p>Select [Save All] from the [File] menu.</p>
+						<img src="./img/fig_10.png">
+					</div>
+                    </li>
+
+	                <li class="normal">
+					<div class="subsec">
+						<p>Confirm the save location and then click [Save].</p>
+						<img src="./img/fig_11.png">
+					</div>
+                    </li>
+				</ol>
+                </li>
+
+				<li class="bd"><p class="bd">Set the interface of IM3590.</p>
+					<div class="subsec">
+						<p class="normal">Set the interface settings of IM3590 as shown below.</p>
+						<img src="./img/fig_12.png">
+					</div>
+                </li>
+				
+				<li class="bd"><p class="bd">Execute the program.</p>
+					<div class="subsec">
+						<p class="normal">This sample program operates as shown below.</p>
+						<ul>
+							<li class="normal">If you press the [Start Measurement] button, you can set the measurement conditions of IM3590 via RS-232C communication. </li>
+							<li class="normal">Perform measurement 10 times and save the data to a file in CSV format. The file name is set automatically from the date and time. </li>
+							<li class="normal">When all measurements are competed normally, the &quot;Measurement Finished&quot; message appears. </li>
+						</ul>
+					</div>
+
+				<ol>
+                	<li class="normal">
+					<div class="subsec">
+						<p>Click [Start Debugging].</p>
+						<img src="./img/fig_13.png">
+					</div>
+                    </li>
+
+                	<li class="normal">
+					<div class="subsec">
+						<p>Click [Start Measurement].</p>
+						<img src="./img/fig_14.png">
+					</div>
+                    </li>
+
+                	<li class="normal">
+					<div class="subsec">
+						<p>When measurement is finished, a message appears and the measurement values are saved in the \bin\Debug folder in which the project was saved.</p>
+						<img src="./img/fig_15.png">
+					</div>
+                    </li>
+				</ol>
+                </li>
+
+			</ol>
+
+		</div>
+	
+	
+
+	</div>
+
+	<h2>Measurement Data Example</h2>
+	<div class="sec">
+		<div class="prog">
+			<pre>
+Z,Phase,Cp,Lp
+  998.150E-03,  -0.001, 2.430312E-09,-10.42265E+00
+  998.150E-03,  -0.006, 16.80788E-09,-1.507049E+00
+  998.099E-03,  -0.002, 4.951606E-09,-5.115571E+00
+  998.125E-03,  -0.002, 4.458802E-09,-5.680965E+00
+  998.082E-03,  -0.004, 12.12213E-09,-2.089591E+00
+  998.117E-03,  -0.002, 5.055860E-09,-5.010087E+00
+  998.130E-03,  -0.003, 9.168967E-09,-2.762612E+00
+  998.160E-03,  -0.002, 5.503513E-09,-4.602568E+00
+  998.124E-03,  -0.002, 6.831358E-09,-3.707945E+00
+  998.080E-03,  -0.001, 3.565134E-09,-7.105004E+00
+			</pre>
+		</div>
+	</div>
+
+	<h2>Sample Programs</h2>
+	<div class="sec">
+		<div class="prog">
+			<pre>
+Public Class Form1
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+
+        Button1.Enabled = False                            ' Disables the button during measurement
+        Try
+            SerialPort1.NewLine = vbCrLf                   ' Sets the line feed code to CR+LF
+
+            SerialPort1.Open()                             ' Opens serial communication port
+
+            SerialPort1.WriteLine(&quot;:MODE LCR&quot;)             ' Mode: LCR
+            SerialPort1.WriteLine(&quot;:MEAS:ITEM 149,0&quot;)      ' Measurement Parameter: Z,Phase,Cp,Lp
+            SerialPort1.WriteLine(&quot;:HEAD OFF&quot;)             ' Header: OFF
+            SerialPort1.WriteLine(&quot;:LEV V&quot;)                ' Signal level: Open-circuit voltage
+            SerialPort1.WriteLine(&quot;:LEV:VOLT 0.5&quot;)         ' Signal level: 500 mV signal level
+            SerialPort1.WriteLine(&quot;:FREQ 1E3&quot;)             ' Measurement frequency: 1kHz
+            SerialPort1.WriteLine(&quot;TRIG EXT&quot;)              ' Trigger: External trigger
+
+            Dim dt As DateTime = DateTime.Now              ' Acquires date and time
+            Dim filename As String = dt.ToString(&quot;yyyy-MM-dd_HH-mm-ss&quot;) + &quot;.csv&quot;   ' Sets the file name
+            Dim rd As String
+
+            Dim fp As New System.IO.StreamWriter(filename, False, _
+                System.Text.Encoding.GetEncoding(&quot;shift_jis&quot;))  ' File open
+
+            fp.Write(&quot;Z,Phase,Cp,Lp&quot; + vbCrLf)                ' Outputs the header to file
+
+            For index As Integer = 1 To 10                 ' Repeats measurement 10 times
+                SerialPort1.WriteLine(&quot;*TRG;:MEAS?&quot;)       ' Reads trigger and measurement results
+                rd = SerialPort1.ReadLine                  ' Acquires measurement results
+                fp.Write(rd)                               ' Outputs the measurement results to file
+                fp.Write(vbCrLf)                           ' Outputs the line feed to file
+            Next
+
+            fp.Close()                                     ' Closes file
+            SerialPort1.Close()                            ' Closes serial communication port
+            MsgBox(&quot;End of measuremen&quot;)                    ' Displays measurement finished messag
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, &quot;Error&quot;, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+        Button1.Enabled = True                             ' Enables the button
+
+    End Sub
+
+End Class
+			</pre>
+		</div>
+	</div>
+    
+</body>
+</html>
+

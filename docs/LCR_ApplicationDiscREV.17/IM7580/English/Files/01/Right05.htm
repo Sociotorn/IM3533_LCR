@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<link rel="stylesheet" href="../../../Common/css/style.css" type="text/css">
+		<link rel="stylesheet" href="../../../Common/css/style01.css" type="text/css">
+		<title></title>
+</head>
+<body bgcolor="#ffe2e2">
+	<h2>About the Status Byte Register</h2>
+    <div class="contents">
+        <p>The Status Byte Register contains information about the event registers and the output queue.</p>
+        <p>Required items are selected from this information by masking with the Service Request Enable Register.</p>
+        <p>When any bit selected by the mask is set, bit 6 (MSS; the Master Summary Status) of the Status Byte Register is also set, which generates an SRQ (Service Request) message and dispatches a service request.</p>
+        <p><img src="./img/fig5_1.png"></p>
+        <p><img src="./img/fig5_2.png"></p>
+        <p class="note"><span class="note">For RS-232C, USB and LAN bit 4 (MAV message available) of the status byte register is not set.</span></p>
+	</div>
+    
+    <h3>Status Byte Register (STB)</h3>
+    	<div class="contents">
+        	<p>A status byte register is an 8-bit register output from the unit to the controller during serial polling.</p>
+			<p>If even one of the status byte register bits enabled by the service request enable register changes from &quot;0&quot; to &quot;1,&quot; the MSS bit becomes 1.</p>
+            <p>At the same time, the SRQ bit also becomes &quot;1&quot; and a service request is generated.</p>
+			<br>
+            <p>The SRQ bit is always synchronized with the service request and only read and simultaneously cleared upon being serial polled.</p>
+        	<p>The MSS bit is only read by an &quot;*STB?&quot; query and is not cleared until the event is cleared by a command such as a &quot;*CLS&quot; command.</p>
+        	<p><img src="./img/fig5_3.png"></p>
+        </div>
+
+
+	<h3>Service Request Enable Register (SRER)</h3>
+    	<div class="contents">
+        	<p>When the service request enable register is used to set each of the bits to &quot;1&quot;the corresponding bits are enabled in the status byte register.</p>
+        </div>
+
+
+</body>
+</html>

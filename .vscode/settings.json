@@ -1,0 +1,11 @@
+{
+    "vim.useSystemClipboard": true,
+    "vim.handleKeys": {
+        "<C-d>": true,
+        "<C-s>": false,
+        "<C-z>": false,
+        "<C-p>": false
+    },
+    "python.envFile": "${workspaceFolder}/.env",
+    "terminal.integrated.env.linux": { "PYTHONPATH": "${workspaceFolder}${pathSeperator}${workspaceFolder}/IM3533${pathSeperator}${env:PYTHONPATH}" }
+}

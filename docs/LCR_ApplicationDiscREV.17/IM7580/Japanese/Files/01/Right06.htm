@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<link rel="stylesheet" href="../../../Common/css/style.css" type="text/css">
+		<link rel="stylesheet" href="../../../Common/css/style01.css" type="text/css">
+		<title></title>
+</head>
+<body bgcolor="#ffe2e2">
+	<h2>イベント・レジスタ</h2>
+
+	<h3 id="SESR">標準イベント・ステータス・レジスタ（SESR）</h3>
+    <div class="contents">
+    	<p>標準イベント・ステータス・レジスタは、8ビットのレジスタです。</p>
+        <p>標準イベント・ステータス・イネーブル・レジスタで使用可能に設定したビットのうち、標準イベント・ステータス・レジスタのビットがひとつでも"1"になると、 ステータス・バイト・レジスタのビット5（ESB）が"1"になります。</p>
+        <p>参照：<a href="#SESER">標準イベント・ステータス・イネーブル・レジスタ</a></p>
+        <br>
+        <p>標準イベント・レジスタの内容は次のときクリアされます。</p>
+        <ul>
+        	<li><span><a href="../03/Right03.htm#*CLS" target="_self">*CLS</a></span>コマンドを実行したとき 
+            <li>イベント・レジスタのクエリを実行したとき（<span><a href="../03/Right03.htm#*ESR" target="_self">*ESR?</a></span>） 
+            <li>電源を再投入したとき</li>        
+        </ul>
+        <p><img src="./img/fig6_1.png"></p>
+    </div>
+
+	<h3 id="SESER">標準イベント・ステータス・イネーブル・レジスタ（SESER）</h3>
+    <div class="contents">
+    	<p>標準イベント・ステータス・イネーブル・レジスタは、各ビットを"1"に設定することで、標準イベント・ステータス・レジスタ内の対応するビットを使用可能にします。</p>
+    	<p>標準イベント・ステータス・レジスタ（SESR）と標準イベント・ステータス・イネーブル・レジスタ（SESER）</p>
+        <p><img src="./img/fig6_2.png"></p>
+    </div>
+
+	<h3>固有のイベント・ステータス・レジスタ（ESR0,ESR1,ESR2,ESR3,ESR4）</h3>
+    <div class="contents">
+    	<p>本器のイベントを管理するために、4つのイベント・ステータス・レジスタを用意しています。</p>
+    	<p>イベント・ステータス・レジスタは8ビットのレジスタです。</p>
+        <p>イベント・ステータス・イネーブル・レジスタで使用可能に設定したビットのうち、イベント・ステータス・レジスタのビットがひとつでも"1"になると、 以下のようになります。</p>
+        
+        <ul>
+        	<li>イベント・ステータス・レジスタ0 の場合：ステータス・バイト・レジスタのビット0(ESB0) が"1" 
+        	<li>イベント・ステータス・レジスタ1 の場合：ビット1（ESB1）が"1" 
+            <li>イベント・ステータス・レジスタ2 の場合：ビット2（ESB2）が"1" 
+  
+			<li>イベント・ステータス・レジスタ3 の場合：ビット3（ESB3）が"1" 
+  <li>イベント・ステータス・レジスタ4 の場合：ビット7（ESB4）が"1" </li>
+        </ul>
+        <br>
+        <p>イベント・ステータス・レジスタ0, 1, 2, 3,4 の内容は次のときクリアされます。</p>
+        <ul>
+        	<li>"<span><a href="../03/Right03.htm#*CLS" target="_self">*CLS</a></span>"コマンドを実行したとき 
+  
+			<li>イベント・ステータス・レジスタのクエリを実行したとき（
+        		<span><a href="../03/Right03.htm#:ESR0" target="_self">:ESR0?</a></span>,
+                <span><a href="../03/Right03.htm#:ESR1" target="_self">:ESR1?</a></span>,
+                <span><a href="../03/Right03.htm#:ESR2" target="_self">:ESR2?</a></span>,
+                <span><a href="../03/Right03.htm#:ESR3" target="_self">:ESR3?</a></span>,
+                <span><a href="../03/Right03.htm#:ESR4" target="_self">:ESR4?</a></span>） 
+            <li>電源を再投入したとき</li>
+        </ul>
+        
+        <p id="ESR0"><img src="./img/fig6_3.png"></p>
+        <p id="ESR1"><img src="./img/fig6_4.png"></p>
+        <p id="ESR2"><img src="./img/fig6_5.png"></p>
+        <p id="ESR3"><img src="./img/fig6_6.png"></p>
+        <p id="ESR4"><img src="./img/fig6_6_2.png"></p>
+                
+        <br>
+        <p>イベント・ステータス・レジスタ0(ESR0), 1(ESR1), 2(ESR2), 3(ESR3), 4(ESR4)&nbsp; と</p>
+        <p>イベント・ステータス・イネーブル・レジスタ0(ESER0), 1(ESER1), 2(ESER2), 3(ESER3),4(ESER4)</p>
+        <p><img src="./img/fig6_7.png"></p>
+    </div>
+
+	<h3>各レジスタの読出し、書込み</h3>
+    <div class="contents">
+    	<p><img src="./img/fig6_8.png"></p>
+    
+    </div>
+
+	<h3>GP-IBコマンド</h3>
+    <div class="contents">
+    	<p>インターフェース・ファンクションにより、次のコマンドが使用できます。</p>
+        <p><img src="./img/fig6_9.png"></p>
+    </div>
+
+
+</body>
+</html>

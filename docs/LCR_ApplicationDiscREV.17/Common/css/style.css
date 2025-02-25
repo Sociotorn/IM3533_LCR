@@ -1,0 +1,92 @@
+h1{
+	padding:0;
+	margin:0;
+	font-size:200%;
+}
+
+img {
+    border-style:none;
+	vertical-align:middle;
+}
+
+table.menu, table.link{
+	margin:0 30px;
+	width:600px;
+    border: 1px #CCCCCC solid;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table.menu{
+    text-align:center;
+}
+
+table.menu th{
+    border: #CCCCCC solid;
+    border-width: 0 0 1px 1px;
+    background: #F5F5F5;
+    font-weight: bold;
+    font-size:120%;
+    vertical-align: bottom;
+}
+
+table.link th{
+    border: #CCCCCC solid;
+    border-width: 0 0 1px 1px;
+    background: #F5F5F5;
+    font-weight: bold;
+    font-size:120%;
+    vertical-align: bottom;
+}
+
+table.menu td{
+    padding: 5px;
+    border: 1px #CCCCCC solid;
+    border-width: 0 0 1px 1px;
+}
+
+table.link td{
+    padding: 5px;
+    border: 1px #CCCCCC solid;
+    border-width: 0 0 1px 1px;
+}
+
+div.japanese a{
+	display:block;
+	width:140px;
+	height:40px;
+	background:url(../img/japanese.jpg) no-repeat;
+}
+
+div.japanese a:hover{
+	background:url(../img/japanese_hover.jpg) no-repeat;
+}
+
+div.english a{
+	display:block;
+	width:140px;
+	height:40px;
+	background:url(../img/english.jpg) no-repeat;
+}
+
+div.english a:hover{
+	background:url(../img/english_hover.jpg) no-repeat;
+}
+
+div.dummyimg{
+       width: 0px;
+       height: 0px;
+       display: inline;
+       background-image: url(../img/japanese_hover.jpg);
+       background-image: url(../img/english_hover.jpg);
+}
+
+div.model a{
+	display:block;
+	background: #FFFFFF;
+}
+
+div.model a:hover{
+	display:block;
+	background: #d9dfff;
+}

@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<link rel="stylesheet" href="../../../Common/css/style.css" type="text/css">
+		<link rel="stylesheet" href="../../../Common/css/style01.css" type="text/css">
+		<title></title>
+</head>
+<body bgcolor="#ffe2e2">
+	<h2>メッセージフォーマット</h2>
+    
+    <h3>プログラム・メッセージ</h3>
+	<div class="contents">
+    	<p>プログラム・メッセージは、コマンド・メッセージとクエリ・メッセージに分けることができます。</p>
+
+        <h4>コマンド・メッセージ</h4>
+        <p class="sub">機器の設定、リセットなどの機器を制御する命令</p>
+        <p class="sub"><img src="./img/fig2_1.png"></p>
+
+        <h4>クエリ・メッセージ</h4>
+        <p class="sub">動作結果、測定結果、または機器の設定状態を問い合わせる命令</p>
+        <p class="sub"><img src="./img/fig2_2.png"></p>
+    
+    </div>
+
+    <h3>応答メッセージ</h3>
+	<div class="contents">
+    	<p>クエリ・メッセージを受信して、構文をチェックした時点で作成します。</p>
+    	<p>ヘッダの有無を&quot;HEADer&quot;コマンドで選択できます。</p>
+ 		<br>
+        <p>ヘッダON&nbsp;&nbsp;&nbsp;&nbsp;<span>:FREQUENCY 1000</span></p>
+        <p>ヘッダOFF&nbsp;&nbsp;<span>1000</span></p>
+        <p>（現在の周波数は1kHz）</p>
+        <br>
+        <ul>
+            <li>電源投入時は、ヘッダOFF に設定されます。</li>
+            <li>クエリ・メッセージを受信したときに、何らかのエラーが発生した場合は、そのクエリ・メッセージに対する応答メッセージは作成されません。</li>
+        </ul>
+        
+    </div>
+
+    <h3>コマンド・シンタックス</h3>
+	<div class="contents">
+    	<p>コマンド名は、実行しようとする機能にできるだけ理解しやすい言語が選ばれ、しかも短縮が可能です。</p>
+		<p>コマンド名そのものをロングフォーム、短縮したものをショートフォームといいます。</p>
+		<p>本書では、ショートフォームの部分を大文字で、残りの部分を小文字で記述しますが、大文字と小文字のどちらでも受け付けます。</p>
+        <div class="sub">
+            <table>
+              <tr>
+                <td><span>FREQUENCY</span></td>
+                <td>OK（ロングフォーム）</td>
+              </tr>
+              <tr>
+                <td><span>FREQ</span></td>
+                <td>OK（ショートフォーム）</td>
+              </tr>
+              <tr>
+                <td><span>FREQu </span></td>
+                <td>エラー</td>
+              </tr>
+              <tr>
+                <td><span>FRE</span></td>
+                <td>エラー</td>
+              </tr>
+            </table>
+          </div>
+        
+        <p>本体からの応答メッセージは、すべて大文字のロングフォームで返されます。
+</p>
+    </div>
+
+    <h3>ヘッダ</h3>
+	<div class="contents">
+    	<p>ヘッダは、何を制御するかを表します。プログラム・メッセージには、必ずヘッダが必要です。</p>
+        <h4>コマンド・プログラム・ヘッダ</h4>
+        <p class="sub">単純コマンド型、複合コマンド型、共通コマンド型の3種類があります。</p>
+        <div class="sub">
+        	<ul>
+            <li>単純コマンド型ヘッダ</li>
+            <li class="nomarker">英数字から始まる1語で構成されるヘッダ</li>
+            <li class="nomarker"><span>:HEADer</span></li>
+            
+            <li>複合コマンド型ヘッダ</li>
+            <li class="nomarker">コロン&quot;:&quot;で区切られる複数の単純コマンド型ヘッダで構成されるヘッダ</li>
+            <li class="nomarker"><span>:BEEPer:KEY</span></li>
+            
+            <li>共通コマンド型ヘッダ</li>
+            <li class="nomarker">共通コマンドであることを示すアスタリスク&quot;*&quot;で始まるヘッダ</li>
+            <li class="nomarker">（IEEE488.2で規定されたもの）</li>
+            <li class="nomarker"><span>*RST</span></li>
+            
+            </ul>
+        
+        </div>
+        
+        <h4>クエリ・プログラム・ヘッダ</h4>
+	        <p class="sub">機器のコマンドに対する動作確認、測定結果、または現在の機器の設定状態を問い合わせるために使用します。</p>
+            <p class="sub">下の例のように、プログラム・ヘッダの後にクエスチョンマーク&quot;?&quot;を付けるとクエリとして認識されます。</p>
+            <p class="sub"><span>:FREQuency?</span></p>
+    </div>
+
+    <h3>メッセージ・ターミネータ</h3>
+	<div class="contents">
+    	<p>メッセージ・ターミネータは、コマンドの終了を表します。</p>
+        <p>本器は、メッセージ・ターミネータとして次のものを受け付けます。
+</p>
+		<p><img src="./img//fig2_3.png"></p>
+        <p class="note"><span class="note">IM3590では、メッセージ・ターミネータを確認してからメッセージを解析します。</span></p>
+        <p>また、応答メッセージのターミネータとして、インターフェースの設定によって次のものが選択できます。</p>
+        <p><img src="./img/fig2_4.png"></p>
+    </div>
+
+    <h3>セパレータ</h3>
+	<div class="contents">
+    	<h4>メッセージ単体セパレータ（セミコロン）</h4>
+		<p class="sub">複合メッセージを実行するときに使用します。</p>    
+		<p class="sub">複合メッセージは、それぞれセミコロン&quot;;&quot;でつなげることで、1行で記述することができます。</p>    
+		<p class="sub"><img src="./img/fig2_5.png"></p>    
+        <p class="sub">メッセージを続けて記述した場合、文中でコマンドエラーが起こると、それ以降からターミネータまでのメッセージは実行されません。</p>
+        <p class="sub">（例）<span>:RAN:AUTO ON;:BEEPer:KEY ON;*IDN?</span>を実行すると、<span>:RAN:AUTO</span>がコマンドエラーなので、それ以降の<span>BEEPer:KEY ON;*IDN?</span>は実行されません。</p>
+
+    	<h4>ヘッダ・セパレータ（スペース）</h4>
+		<p class="sub">ヘッダとデータを持つメッセージは、スペース(空白)を使用することで、ヘッダ部とデータ部に分離します。</p>
+        <p class="sub"><img src="./img/fig2_6.png"></p>
+        
+
+    	<h4>データ・セパレータ（コンマ）</h4>
+		<p class="sub">複数のデータを持つメッセージは、データ間をコンマ&quot;,&quot;で分離します。</p>
+        <p class="sub"><img src="./img/fig2_7.png"></p>
+    </div>
+    
+
+    <h3>データ部</h3>
+	<div class="contents">
+    	<p>命令の内容を表します。</p>
+        <p>本器では、データ部に&quot;文字データ&quot;と&quot;10進数値データ&quot;を使用し、コマンドにより使い分けます。</p>
+        <h4>文字データ</h4>
+		<p class="sub">必ず英文字で始まり、英文字と数字で構成されるデータです。文字データは、大文字と小文字の両方で受け付けますが、 本器からの応答メッセージは必ず大文字で返します。</p>
+        <p class="sub"><span>:TRIGger INTernal</span></p>
+
+        <h4>10進数値データ</h4>
+        <p class="sub">数値データのフォーマットには、NR1、NR2、NR3形式があります。</p>
+        <p class="sub">それぞれ符号付き数値、符号なし数値の両方を受け付けます。</p>
+        <p class="sub">符号なし数値の場合、正の数値として扱います。</p>
+        <p class="sub">また、数値の精度が本器の取扱範囲を超える場合、四捨五入します。</p>
+        <div class="sub">
+        	<table>
+              <tr>
+              	<td>NR1</td>
+              	<td>整数データ（例：+12, -23, 34）</td>
+              </tr>
+              <tr>
+              	<td>NR2</td>
+              	<td>小数データ（例：+1.23, -23.45, 3.456）</td>
+              </tr>
+              <tr>
+              	<td>NR3</td>
+              	<td>浮動小数点指数表示データ（例：+1.0E-2, -2.3E+4）</td>
+              </tr>
+            </table>
+        </div>
+       
+        <p class="sub">以上の3種類の形式をすべて含む形式を&quot;NRf形式&quot;と呼びます。</p>
+        <p class="sub">本器では、NRf形式で受け付けます。</p>
+        <br>
+        <p class="sub">応答データに関しては、コマンドごとにフォーマットを指定しており、その形式で送信します。</p>
+         <p class="sub"><span>:RANGe 6</span></p>
+         <p class="sub"><span>:LEVel:VOLTage 0.5</span></p>
+         
+         <div class="sub">
+	         <p class="note"><span class="note">データを持つコマンドは、極力指定されたデータ形式で入力してください。</span></p>
+         </div>
+    </div>
+
+    <h3>複合コマンド型ヘッダの省略</h3>
+	<div class="contents">
+    	<p>複合コマンドの中で、先頭の部分が共通であるもの（例<span>:BEEPer:KEY</span>と<span>:BEEPer:JUDGment</span>など)は、これらを続けて記述する場合に限り、コマンドの共通部分(例 <span>:BEEPer:</span>)を省略することができます。</p>
+        <p>この共通部分は&quot;カレント・パス&quot;と呼ばれ、これがクリアされるまではそれ以降のコマンドは、『カレント・パスを省略したもの』と判断して解析を行ないます。</p>
+        <p>カレント・パスの使用方法を以下の例に示します。</p>
+        <p><img src="./img/fig2_8.png"></p>
+        <p>カレント・パスは、電源投入、インターフェースの種類の変更、デバイスクリア（GP-IBのみ）、コマンドの先頭のコロン&quot;:&quot;、およびメッセージ・ターミネータの検出でクリアします。</p>
+        <p>共通コマンド型のメッセージは、カレント・パスに関係なく実行可能です。また、カレント・パスに影響を与えません。</p>
+        <p>単純および複合コマンド型ヘッダの先頭にコロン&quot;:&quot;を付ける必要はありません。ただし、省略形との混乱と誤動作を防ぐために、弊社では、コマンドの先頭に&quot;:&quot;を付けることを推奨しています。</p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<link rel="stylesheet" href="../../../Common/css/style.css" type="text/css">
+		<link rel="stylesheet" href="../../../Common/css/style01.css" type="text/css">
+		<title></title>
+</head>
+<body bgcolor="#ffe2e2">
+
+	<h2>データ転送フォーマット</h2>
+    <div class="contents">
+    	<p>IM3570には、データ転送フォーマットとしてASCIIおよびバイナリの2種類のフォーマットがあります。</p>
+        <p>また、測定値の有効桁数を10桁とするロング・フォーマットモードがあります。</p>
+        <p>データ転送速度はデータ転送フォーマットおよびロング・フォーマットの設定によって異なります。</p>
+    </div>
+    
+    <h3>測定値/測定信号/モニタ値フォーマット</h3>
+    <div class="contents">
+    	<p><img src="./img/fig3_1.png"></p>
+	</div>
+
+    <h3>COMPのフォーマット</h3>
+    <div class="contents">
+    	<p><img src="./img/fig3_2.png"></p>
+	</div>
+
+    <h3>BINのフォーマット</h3>
+    <div class="contents">
+    	<p><img src="./img/fig3_3.png"></p>
+	</div>
+    
+    <h4>符号について</h4>
+    <p class="sub">値が負の場合、測定値の頭に&quot;-&quot;(マイナス)がつきます。</p>
+    <p class="sub">値が正の場合、測定値の頭に&quot;&nbsp;&quot;(スペース)がつきます。</p>
+    <p class="sub">ただし、以下の場合はスペースはつきません。</p>
+    <div class="sub">
+		<ul>
+        	<li>ロング・フォーマットON時の値</li>
+            <li>V/CV/CC値</li>
+            <li>モニタ値</li>
+        </ul>    
+    </div>
+    
+    <h3>バイナリ・フォーマット</h3>
+    	<div class="contents">
+            <p><span><a href="../03/Right03.htm#:FORMat:DATA" target="_self">:FORMat:DATA REAL</a></span>コマンドを実行すると、IM3570はバイナリ・フォーマットでデータを転送します。</p>
+            <p>以下に示すコマンド/クエリのデータ部がバイナリフォーマットで返されます。</p>
+            
+            <ul>
+            <li><span><a href="../03/Right04.htm" target="_self">:MEASure?</a></span>クエリの応答</li>
+            <li class="nomarker">参照：<span><a href="../03/Right04.htm" target="_self">:MEASure?</a></span>クエリメッセージリファレンス</li>
+            
+            <li>自動出力モードでの測定値データ</li>
+            <li class="nomarker">参照：<span><a href="../03/Right04.htm" target="_self">:MEASure?</a></span>クエリメッセージリファレンス</li>
+            
+            <li><span><a href="../03/Right03.htm#:MEMory" target="_self">:MEMory?</a></span>クエリの応答</li>
+            <li class="nomarker">参照：<span><a href="../03/Right03.htm#:MEMory" target="_self">:MEMory?</a></span>クエリメッセージリファレンス</li>
+    
+            <li><span><a href="../03/Right03.htm#:MEASure:COMParator:PEAK:LMAX" target="_self">:MEASure:COMParator:PEAK:LMAX?</a></span>クエリの応答</li>
+            <li class="nomarker">参照：<span><a href="../03/Right03.htm#:MEASure:COMParator:PEAK:LMAX" target="_self">:MEASure:COMParator:PEAK:LMAX?</a></span>クエリメッセージリファレンス</li>
+    
+            <li><span><a href="../03/Right03.htm#:MEASure:COMParator:PEAK:LMIN" target="_self">:MEASure:COMParator:PEAK:LMIN?</a></span>クエリの応答</li>
+            <li class="nomarker">参照：<span><a href="../03/Right03.htm#:MEASure:COMParator:PEAK:LMIN" target="_self">:MEASure:COMParator:PEAK:LMIN?</a></span>クエリメッセージリファレンス</li>
+    
+            <li><span><a href="../03/Right03.htm#:MEASure:CURSor" target="_self">:MEASure:CURSor?</a></span>クエリの応答</li>
+            <li class="nomarker">参照：<span><a href="../03/Right03.htm#:MEASure:CURSor" target="_self">:MEASure:CURSor?</a></span>クエリメッセージリファレンス</li>
+    
+            <li><span><a href="../03/Right03.htm#:MEASure:POINt" target="_self">:MEASure:POINt?</a></span>クエリの応答</li>
+            <li class="nomarker">参照：<span><a href="../03/Right03.htm#:MEASure:POINt" target="_self">:MEASure:POINt?</a></span>クエリメッセージリファレンス</li>
+    
+            <li><span><a href="../03/Right03.htm#:MEASure:CONTinuous:COMParator" target="_self">:MEASure:CONTinuous:COMParator?</a></span>クエリの応答</li>
+            <li class="nomarker">参照：<span><a href="../03/Right03.htm#:MEASure:CONTinuous:COMParator" target="_self">:MEASure:CONTinuous:COMParator?</a></span>クエリメッセージリファレンス</li>
+    
+            <li><span><a href="../03/Right03.htm#:MEASure:CONTinuous:PEAK" target="_self">:MEASure:CONTinuous:PEAK?</a></span>クエリの応答</li>
+            <li class="nomarker">参照：<span><a href="../03/Right03.htm#:MEASure:CONTinuous:PEAK" target="_self">:MEASure:CONTinuous:PEAK?</a></span>クエリメッセージリファレンス</li>
+    
+            </ul>
+			<br>
+			<p><span>応答データ・フォーマットデータ例</span></p>
+            
+            <p><img src="./img/fig3_4.png"></p>      
+            <p>応答データはヘッダ部とデータ部、ターミネータで構成されます。</p>
+            <p>各部のフォーマットについて次に説明します。</p>   
+            
+            <h4>ヘッダ部</h4>
+                <p class="sub">ヘッダ部は以下に示す3パラメータから構成されます。</p>
+                <div class="sub">
+                    <table>
+                        <tr>
+                            <td>&quot;#&quot;（1byte）</td>
+                            <td>バイナリ・データ出力フォーマット使用符号</td>
+                        </tr>
+                        <tr>
+                            <td>&quot;&lt;転送するバイト数&gt;の桁数&quot;（1byte）</td>
+                            <td>データ部のバイト数の桁数</td>
+                        </tr>
+                        <tr>
+                            <td>&quot;転送するバイト数&quot;（桁数byte）</td>
+                            <td>データ部のバイト数</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <p class="sub">データ部が13byteの場合のヘッダ部は以下のようになります。</p>
+                <p class="sub"><span>#213</span></p>
+                <br>
+                
+                <p class="sub">アナライザーモードでの<span><a href="../03/Right04.htm" target="_self">:MEASure?</a></span>クエリの応答データ、または、<span><a href="../03/Right03.htm#:MEMory" target="_self">:MEMory?</a></span>クエリの応答データのデータ部バイト数は、 掃引点数n個分、またはメモリされている測定値n個分の合計となります。</p>
+                <br>
+                <p class="sub">&quot;&lt;転送するバイト数&gt;の桁数&quot;は</p>
+                <div class="sub">
+                	<table>
+                    	<tr>
+                        	<td>SWEEP測定での<span><a href="../03/Right04.htm" target="_self">:MEASure?</a></span>クエリ</td>
+                        	<td>&quot;5&quot;桁</td>
+                        </tr>
+                    	<tr>
+                        	<td><span><a href="../03/Right03.htm#:MEMory" target="_self">:MEMory?</a></span>クエリ</td>
+                        	<td>&quot;7&quot;桁</td>
+                        </tr>
+                    </table>
+                </div>
+                <p class="sub">で固定となります。</p>
+                
+                <p class="sub">従って例えば、1測定値データ14byteの測定値が200掃引点ある場合、または200個メモリされている場合、転送するバイト数は2800byteとなり、ヘッダ部は以下のようになります。</p>
+                                <div class="sub">
+                <table>
+                    	<tr>
+                        	<td>SWEEP測定での<span><a href="../03/Right04.htm" target="_self">:MEASure?</a></span>クエリ</td>
+                        	<td>&quot;#502800&quot;</td>
+                        </tr>
+                    	<tr>
+                        	<td><span><a href="../03/Right03.htm#:MEMory" target="_self">:MEMory?</a></span>クエリ</td>
+                        	<td>&quot;#70002800&quot;</td>
+                        </tr>
+                    </table>
+                </div>
+            
+
+            <h4>データ部</h4>
+            <p class="sub">データ部ではASCIIフォーマットと同様に<span><a href="../03/Right03.htm#:MEASure:VALid" target="_self">:MEASure:VALid</a></span>、<span><a href="../03/Right03.htm#:MEASure:ITEM" target="_self">:MEASure:ITEM</a></span>コマンドで設定したパラメータを返します。</p>
+            <p class="sub">参照：<span><a href="../03/Right04.htm" target="_self">:MEASure?</a></span>クエリメッセージリファレンス、<span><a href="../03/Right03.htm#:MEMory" target="_self">:MEMory?</a></span>クエリメッセージリファレンス</p>
+
+            <h4>メッセージターミネータ</h4>
+            <p class="sub">本体設定に従ったメッセージターミネータが付加されます。</p>
+            
+		</div>
+
+</body>
+</html>
+

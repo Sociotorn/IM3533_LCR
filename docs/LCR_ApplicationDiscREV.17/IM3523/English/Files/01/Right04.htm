@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<link rel="stylesheet" href="../../../Common/css/style.css" type="text/css">
+		<link rel="stylesheet" href="../../../Common/css/style01.css" type="text/css">
+		<title></title>
+</head>
+<body bgcolor="#ffe2e2">
+	<h2>About the Output Queue and Input Buffer</h2>
+    
+    <h3>Output Queue</h3>
+   	<div class="contents">
+    	<p class="sub">The output queue is the area in the unit where response messages are stored.</p>
+        <p class="sub">Stored response messages are cleared once they are read by the controller of the PC. The output queue is also cleared at the following times.</p>
+        <p class="sub"><img src="img/fig4_1.png"></p>
+        <p class="sub">The output queue of the unit is 10KB. If a response message exceeds this size, a query error is generated and the output buffer is cleared.</p>
+        <p class="sub">For GP-IB, the output queue is cleared and a query error is generated if a new message is received when there is data in the output queue.</p>  
+    </div>
+
+    <h3>Input Buffer</h3>
+   	<div class="contents">
+    	<p class="sub">The input buffer is the area in the unit where received data is stored.</p>
+    	<p class="sub">The input buffer is 10KB.</p>
+    	<p class="sub">If data exceeding 10KB was sent and the input buffer becomes full, the GP-IB interface bus enters a wait state until free space becomes available.</p>
+    	<p class="sub">RS-232C, USB and LAN cannot receive data that exceeds 10KB.</p>
+        <div class="sub">
+        	<p class="note"><span class="note">Keep the length of one command under 10KB.</span></p>
+        </div>
+        <p></p>
+	</div>
+</body>
+</html>

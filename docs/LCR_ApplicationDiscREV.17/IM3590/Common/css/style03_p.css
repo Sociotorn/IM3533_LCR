@@ -1,0 +1,111 @@
+h3{
+	margin:20px 20px 5px;
+	padding:0px 10px;
+	font-size:1em;
+	border:0px;
+	border-left:20px solid;
+	border-bottom:1px solid;
+	border-color:#ffffff #ffffff #999999 #66CC66;
+	background-color:#CCFFCC;
+}
+
+h3 img{
+	vertical-align: text-top;
+	height: 12px;
+}
+
+div.note{
+	margin:10px;
+	padding:2px;
+	color:FF0000;
+	border-style:solid;
+	border-color:FF0000;
+	border-width:1px;
+}
+
+p.sec_01{
+	font-weight:bold;
+
+}
+
+p.sec_02{
+
+}
+
+p.sec_03{
+	margin:0;
+}
+
+p.para_detail{
+	margin:0 0 0 0.9em;
+	font-size:0.9em;
+}
+
+span.cmd_main{
+	font-weight:bold;
+	font-size:1.2em;
+	color:0066FF;
+}
+
+span.cmd_sub{
+	font-weight:bold;
+	color:0066FF;
+}
+
+span.cmd_para{
+	font-weight:bold;
+	color:#339900;
+}
+
+
+table.cmd{
+	margin:0 30px;
+    border: 1px #CCCCCC solid;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table.cmd th{
+    padding:0 5px;
+    border: #CCCCCC solid;
+    border-width: 0 0 1px 1px;
+    background: #F5F5F5;
+    font-weight: bold;
+    line-height: 120%;
+    text-align:left;
+}
+
+table.cmd td{
+    padding: 0px;
+    border: 1px #CCCCCC solid;
+    border-width: 0 0 1px 1px;
+	font-size:0.7em;
+}
+
+td.cmd_01{
+	width:3em;
+    text-align:center;
+}
+
+td.cmd_02{
+	width:6em;
+    text-align:center;
+}
+
+td.cmd_03{
+    text-align:left;
+}
+
+th.mode{
+	width:1em;
+}
+
+td.mode{
+	width:1em;
+}
+
+ul.note{
+	margin:0 0 0 2em;
+	padding:0;
+}
+

@@ -1,0 +1,118 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<link rel="stylesheet" href="../../../Common/css/style.css" type="text/css">
+		<link rel="stylesheet" href="../../../Common/css/style01.css" type="text/css">
+		<title></title>
+</head>
+<body bgcolor="#ffe2e2">
+
+	<h2>About Data Transmission Formats</h2>
+    <div class="contents">
+    	<p>With IM7580, two types of data transmission format are supported: ASCII and binary.</p>
+        <p>There is also long format mode which allows 10 digits for the number of effective digits of measurement values.</p>
+        <p>The data transmission speed differs depending on the data transfer format or long format setting.</p>
+    </div>
+    
+    <h3>Measurement Value, Measurement Signal, and Monitor Value Formats</h3>
+    <div class="contents">
+    	<p><img src="./img/fig3_1.png"></p>
+	</div>
+
+    <h3>COMP Format</h3>
+    <div class="contents">
+    	<p><img src="./img/fig3_2.png"></p>
+	</div>
+
+    <h3>BIN format</h3>
+    <div class="contents">
+    	<p><img src="./img/fig3_3.png"></p>
+	</div>
+    
+    <h4>About signs</h4>
+    <p class="sub">When a value is negative, a minus "-" sign is added before the measurement value.</p>
+    <p class="sub">When a value is positive, a space "&nbsp;" sign is added before the measurement value.</p>
+    <p class="sub">However, a space is not added in the following cases.</p>
+<div class="sub">
+<ul>
+        	<li>Value when long format is on 
+            <li>POWER&nbsp;value</li></ul></div>
+    
+    <h3>Binary Format</h3>
+    	<div class="contents">
+            <p><span>If a <a href="../03/Right03.htm#:FORMat:DATA" target="_self">:FORMat:DATA REAL</a></span> command is executed, the IM3590 transmits the data in binary format.</p>
+            <p>The data portion of the commands/queries shown below is returned in binary format.</p>
+            
+            <ul>
+            <li><span><a href="../03/Right04.htm" target="_self">:MEASure?</a></span>query response 
+            <li class="nomarker">See: <span><a href="../03/Right04.htm" target="_self">:MEASure?</a></span> query message reference 
+            
+            <li>Measurement value data in automatic output mode 
+            <li class="nomarker">See: <span><a href="../03/Right04.htm" target="_self">:MEASure?</a></span> query message reference 
+            
+            <li><span><a href="../03/Right03.htm#:MEMory" target="_self">:MEMory?</a></span>query response 
+            <li class="nomarker">See: <span><a href="../03/Right03.htm#:MEMory" target="_self">:MEMory?</a></span> query message 
+  reference
+    
+            <li><span><a href="../03/Right03.htm#:MEASure:POINt" target="_self">:MEASure:POINt?</a></span>query 
+  response 
+            <li class="nomarker">See: <span><a href="../03/Right03.htm#:MEASure:POINt" target="_self">:MEASure:POINt?</a></span> 
+  query message reference
+    
+            <li><span><a href="../03/Right03.htm#:MEASure:CONTinuous:COMParator" target="_self">:MEASure:CONTinuous:COMParator?</a></span>query 
+  response 
+            <li class="nomarker">See: <span><a href="../03/Right03.htm#:MEASure:CONTinuous:COMParator" target="_self">:MEASure:CONTinuous:COMParator?</a></span> 
+  query message reference 
+  <li><span>:MEASure:COMParator:PEAK?</span>クエリの応答 
+  <li class="nomarker">参照：<span>:</span>MEASure:COMParator:PEAK?クエリメッセージリファレンス 
+  </li>
+    
+            </ul>
+			<br>
+			<p><span>Example of response data format</span></p>
+            
+            <p><img src="./img/fig3_4.png"></p>      
+            <p>The response data consist of the header portion, data portion, and terminator.</p>
+            <p>The following describes the format of each portion.</p>
+            <p>For details on the response data format.</p>   
+            
+            <h4>Header portion</h4>
+                <p class="sub">The header portion consists of the three parameters shown below.</p>
+                <div class="sub">
+                    <table>
+                        <tr>
+                            <td>"#"(1byte)</td>
+                            <td>Sign used for data output format</td>
+                        </tr>
+                        <tr>
+                            <td>"Number of digits for &lt;Number of bytes to transfer&gt;"(1byte)</td>
+                            <td>Number of digits for number of bytes of data portion</td>
+                        </tr>
+                        <tr>
+                            <td>"Number of bytes to transfer (number of digits byte)"</td>
+                            <td>Number of bytes of data portion</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <p class="sub">When the data portion is 13 bytes, it is as shown below.</p>
+                <p class="sub"><span>#213</span></p>
+                <br>
+                
+                <p class="sub">The number of bytes of the data portion for the response data of the <span><a href="../03/Right04.htm" target="_self">:MEASure?</a></span> query in ANALYZER mode or the response data of the <span><a href="../03/Right03.htm#:MEMory" target="_self">:MEMory?</a></span> query is the total for n sweep points or for n measurement values.</p>
+            
+
+            <h4>Data portion</h4>
+            <p class="sub">The data portion returns the data of the parameters set in the <span><a href="../03/Right03.htm#:MEASure:VALid" target="_self">:MEASure:VALid</a></span> and <span><a href="../03/Right03.htm#:MEASure:ITEM" target="_self">:MEASure:ITEM</a></span> commands in the same way as with ACSII format.</p>
+            <p class="sub">See: <span><a href="../03/Right04.htm" target="_self">:MEASure?</a></span> query message reference or <span><a href="../03/Right03.htm#:MEMory" target="_self">:MEMory?</a></span> query message reference</p>
+
+            <h4>Message Terminator</h4>
+            <p class="sub">A message terminator is added in accordance with the instrument settings.</p>
+            
+		</div>
+
+</body>
+</html>
+

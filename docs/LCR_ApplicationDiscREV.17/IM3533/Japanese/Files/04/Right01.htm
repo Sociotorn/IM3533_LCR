@@ -1,0 +1,284 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="../../../Common/css/style.css" type="text/css">    
+	<link rel="stylesheet" href="../../../Common/css/style04.css" type="text/css">    
+	<title></title>
+</head>
+
+<body bgcolor="#FFF7C9">
+	<h2>サンプルプログラムについて</h2>
+
+	<div class="sec">
+		<p>ここでご提供するサンプル・プログラムのソースはすべて著作権フリーです。</p>
+	</div>
+
+	<div class="sec">
+		<p><span class="uline">
+			日置電機株式会社は、ここに記載されたされたソフトウェアを実行、使用したことにより発生したいかなる損害に関しても、<br>
+			責任を一切負いません。その旨、予めご了承のほど、お願いいたします。
+		</span></p>
+	</div>
+
+	<div class="sec">
+		<p>Visual Basic、Visual Studioは米国Microsoft社の登録商標です。</p>
+		<p>MS、Microsoft、Windows、MS-DOSは米国Microsoft社の登録商標です。</p>
+	</div>
+    
+    <h2>Visual Basic2010 Express Editionでの作成手順</h2>
+    <div class="sec">
+        <p>Windows の開発言語Visual Basic2010 Express Editionを利用して、IM3533、IM3533-01をRS-232C経由で
+           コンピュータから操作して、測定値を取り込んでファイルに保存する方法を例に説明します。
+           (RS-232Cを使用する際は、Z3001 RS-232C インターフェースが別途必要です。)</p>
+        <p>以下、Visual Basic2010をVB2010と記載します。</p>
+        <span>コンピュータやVB2010の環境により、説明が若干異なる場合があります。
+              VB2010の詳しい使用方法についてはVB2010のHELPまたは参考書籍をご覧ください。</span>
+    </div>
+
+	<div class="sec">
+		<div class="subsec">
+			<ol>
+				<li class="bd"><p class="bd">新規プロジェクトの作成</p>
+				<ol>
+                	<li class="normal">
+					<div class="subsec">
+						<p>VB2010 を起動する。</p>
+					</div>
+                    </li>
+					
+                    <li class="normal">
+					<div class="subsec">
+						<p>[ファイル]-[新しいプロジェクト]を選択する。</p>
+						<img src="./img/fig_01.png">
+					</div>
+					</li>
+                    
+                    <li class="normal">
+					<div class="subsec">
+						<p>テンプレートから[Windows フォーム アプリケーション]を選択する。</p>
+						<img src="./img/fig_02.png">
+					</div>
+                    </li>
+					
+                    <li class="normal">
+					<div class="subsec">
+						<p>[OK]ボタンをクリックする。</p>
+					</div>
+                    </li>
+				</ol>
+                </li>
+
+				<li class="bd"><p class="bd">ボタンの配置</p>
+				<ol>
+	                <li class="normal">
+					<div class="subsec">
+						<p>[ツールボックス]の[コモンコントロール]から[Button]をクリックする。</p>
+					</div>
+                   	</li>
+
+	                <li class="normal">
+					<div class="subsec">
+						<p>フォームレイアウト画面上でマウスボタンをドラッグしてボタンを貼り付ける。</p>
+						<img src="./img/fig_03.png">
+					</div>
+                    </li>
+
+	                <li class="normal">
+					<div class="subsec">
+						<p>プロパティウィンドウから[Text]を「測定開始」に変更する。</p>
+						<img src="./img/fig_04.png">
+					</div>
+                    </li>
+
+	                <li class="normal">
+					<div class="subsec">
+						<p>フォーム上に[測定開始]ボタンが配置される。</p>
+						<img src="./img/fig_05.png">
+					</div>
+                    </li>
+				</ol>
+                </li>
+
+				<li class="bd"><p class="bd">シリアル通信コンポーネントの配置</p>
+				<ol>
+	                <li class="normal">
+					<div class="subsec">
+						<p>[ツールボックス]の[コンポーネント]から[SerialPort]をクリックする。</p>
+					</div>
+                    </li>
+				
+	                <li class="normal">
+					<div class="subsec">
+						<p>[SerialPort]コンポーネントをフォームレイアウト画面上へドラッグして貼り付ける。</p>
+						<img src="./img/fig_06.png">
+					</div>
+                    </li>
+
+	                <li class="normal">
+					<div class="subsec">
+						<p>プロパティウィンドウから[PortName] を通信に使用するポート名に変更する。</p>
+						<img src="./img/fig_07.png">
+						<p class="normal"><span>あらかじめ、通信に使用するポートを確認してください。</span></p>
+					</div>
+                    </li>
+				</ol>
+                </li>
+
+				<li class="bd"><p class="bd">コードの記述</p>
+				<ol>
+	                <li class="normal">
+					<div class="subsec">
+						<p>配置したボタンをダブルクリックしてコードエディタを表示する。</p>
+						<img src="./img/fig_08.png">
+					</div>
+                    </li>
+				
+	                <li class="normal">
+					<div class="subsec">
+						<p>コードエディタにサンプルプログラムを入力する。</p>
+						<img src="./img/fig_09.png">
+					</div>
+                    </li>
+
+	                <li class="normal">
+					<div class="subsec">
+						<p>[ファイル]-[すべてを保存]を選択する。</p>
+						<img src="./img/fig_10.png">
+					</div>
+                    </li>
+
+	                <li class="normal">
+					<div class="subsec">
+						<p>保存場所を確認して[上書き保存]をクリックする。</p>
+						<img src="./img/fig_11.png">
+					</div>
+                    </li>
+				</ol>
+                </li>
+
+				<li class="bd"><p class="bd">IM3533、IM3533-01 のインタフェース設定</p>
+					<div class="subsec">
+						<p class="normal">IM3533、IM3533-01 のインタフェース設定を下記のように設定する。</p>
+						<img src="./img/fig_12.png">
+					</div>
+                </li>
+				
+				<li class="bd"><p class="bd">プログラムの実行</p>
+					<div class="subsec">
+						<p class="normal">本サンプルプログラムでは以下のような動作をします。</p>
+						<ul>
+							<li class="normal">[測定開始]ボタンを押すと、RS-232C通信でIM3533、IM3533-01の測定条件を設定します。</li>
+							<li class="normal">10 回測定を行い、CSV形式のファイルへ保存します。ファイル名は日時から自動的に設定します。</li>
+							<li class="normal">すべての測定が正常に完了すると「測定終了」のメッセージが表示されます。</li>
+						</ul>
+					</div>
+
+				<ol>
+                	<li class="normal">
+					<div class="subsec">
+						<p>[デバッグ開始]ボタンをクリックする。</p>
+						<img src="./img/fig_13.png">
+					</div>
+                    </li>
+
+                	<li class="normal">
+					<div class="subsec">
+						<p>[測定開始]ボタンをクリックする。</p>
+						<img src="./img/fig_14.png">
+					</div>
+                    </li>
+
+                	<li class="normal">
+					<div class="subsec">
+						<p>測定が終了するとメッセージが表示されて、「プロジェクトを保存したフォルダ\bin\Debug」フォルダ内に測定値が保存されます。</p>
+						<img src="./img/fig_15.png">
+					</div>
+                    </li>
+				</ol>
+                </li>
+
+			</ol>
+
+		</div>
+	
+	
+
+	</div>
+
+	<h2>保存例</h2>
+	<div class="sec">
+		<div class="prog">
+			<pre>
+Z,θ,Cp,Lp
+  998.150E-03,  -0.001, 2.430312E-09,-10.42265E+00
+  998.150E-03,  -0.006, 16.80788E-09,-1.507049E+00
+  998.099E-03,  -0.002, 4.951606E-09,-5.115571E+00
+  998.125E-03,  -0.002, 4.458802E-09,-5.680965E+00
+  998.082E-03,  -0.004, 12.12213E-09,-2.089591E+00
+  998.117E-03,  -0.002, 5.055860E-09,-5.010087E+00
+  998.130E-03,  -0.003, 9.168967E-09,-2.762612E+00
+  998.160E-03,  -0.002, 5.503513E-09,-4.602568E+00
+  998.124E-03,  -0.002, 6.831358E-09,-3.707945E+00
+  998.080E-03,  -0.001, 3.565134E-09,-7.105004E+00
+			</pre>
+		</div>
+	</div>
+
+	<h2>サンプルプログラム</h2>
+	<div class="sec">
+		<div class="prog">
+			<pre>
+Public Class Form1
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+
+        Button1.Enabled = False                            ' 測定中はボタンを無効にする
+        Try
+            SerialPort1.NewLine = vbCrLf                   ' 改行コードをCR+LFに設定
+
+            SerialPort1.Open()                             ' シリアル通信ポートオープン
+
+            SerialPort1.WriteLine(&quot;:MODE LCR&quot;)             ' 測定モード    :LCR
+            SerialPort1.WriteLine(&quot;:MEAS:ITEM 149,0&quot;)      ' 測定パラメータ:Z,θ,Cp,Lp
+            SerialPort1.WriteLine(&quot;:HEAD OFF&quot;)             ' ヘッダ        :OFF
+            SerialPort1.WriteLine(&quot;:LEV V&quot;)                ' 信号レベル    :開放電圧
+            SerialPort1.WriteLine(&quot;:LEV:VOLT 0.5&quot;)         ' 信号レベル    :500mV
+            SerialPort1.WriteLine(&quot;:FREQ 1E3&quot;)             ' 測定周波数    :1kHz
+            SerialPort1.WriteLine(&quot;TRIG EXT&quot;)              ' トリガ        :外部トリガ
+
+            Dim dt As DateTime = DateTime.Now              ' 日時を取得
+            Dim filename As String = dt.ToString(&quot;yyyy-MM-dd_HH-mm-ss&quot;) + &quot;.csv&quot;   ' ファイル名を設定
+            Dim rd As String
+
+            Dim fp As New System.IO.StreamWriter(filename, False, _
+                System.Text.Encoding.GetEncoding(&quot;shift_jis&quot;))  ' ファイルオープン
+
+            fp.Write(&quot;Z,θ,Cp,Lp&quot; + vbCrLf)                ' ヘッダをファイルに出力
+
+            For index As Integer = 1 To 10                 ' 10回測定を繰り返す
+                SerialPort1.WriteLine(&quot;*TRG;:MEAS?&quot;)       ' トリガと測定結果の読み取り
+                rd = SerialPort1.ReadLine                  ' 測定結果を取得
+                fp.Write(rd)                               ' 測定結果をファイルに出力
+                fp.Write(vbCrLf)                           ' 改行をファイルに出力
+            Next
+
+            fp.Close()                                     ' ファイルクローズ
+            SerialPort1.Close()                            ' シリアル通信ポートクローズ
+            MsgBox(&quot;測定終了&quot;)                             ' 測定完了メッセージを表示
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, &quot;エラー&quot;, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+        Button1.Enabled = True                             ' ボタンを有効にする
+
+    End Sub
+
+End Class
+			</pre>
+		</div>
+	</div>
+    
+</body>
+</html>

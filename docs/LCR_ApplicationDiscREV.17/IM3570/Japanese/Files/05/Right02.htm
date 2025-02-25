@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<link rel="stylesheet" href="../../../Common/css/style.css" type="text/css">
+		<link rel="stylesheet" href="../../../Common/css/style05.css" type="text/css">
+		<title></title>
+</head>
+<body bgcolor="#fce5c6">
+
+	<h2>データの送受信がおかしいとき</h2>
+	<div class="contents">
+		<p>データの送受信で問題が発生する場合は、以下の内容についてチェックしてください。</p>
+		<p>特定のインターフェースの記載がない原因・処置は、RS-232C、GP-IB、USB、LAN共通です。</p>
+	</div>
+	
+	<h3>通信がうまくいかない</h3>
+	<div class="contents">
+		<ul>
+			<li>IM3570とコンピュータのRS-232Cの設定(ボーレート、データ長、パリティ、ストップビット)が同じになっていますか？&nbsp;【RS-232C】</li>
+			<li>コントローラのメッセージ・ターミネータ（デリミタ）をきちんと設定してください。</li>
+			<li class="nomarker"><span>参照：<a href="../03/Right03.htm#:TRANsmit:TERMinator" target="_self">メッセージ・ターミネータ</a></span></li>
+		</ul>
+	</div>
+
+	<h3>通信した後、キーが効かない</h3>
+	<div class="contents">
+		<ul>
+			<li>本体パネル面のLOCALキーを押して、リモート状態を解除してください。</li>
+			<li>LLO（ローカル・ロック・アウト）コマンドを送信していませんか？&nbsp;【GP-IB】</li>
+			<li class="nomarker">GTL コマンドを送信して、ローカル状態にしてください。</li>
+		</ul>
+	</div>
+
+	<h3>コマンドを送信したのに動作しない</h3>
+	<div class="contents">
+		<ul>
+			<li><span><a href="../03/Right03.htm#*ESR" target="_self">*ESR?</a></span>クエリを使用して、標準イベント・ステータス・レジスタの内容を見て、どのエラーになっているのか確認してください。</li>
+		</ul>
+	</div>
+
+	<h3>クエリをいくつか送信したのに、応答がひとつしか返ってこない</h3>
+	<div class="contents">
+		<ul>
+			<li>エラーは発生していませんか？</li>
+			<li>クエリをひとつ送信するごとに1回読み込んでください。一度に読み込みたいときは、メッセージ・セパレータを使用して、1行に記述してください。</li>
+		</ul>
+	</div>
+
+	<h3>クエリの応答メッセージがパネル上の表示と違う</h3>
+	<div class="contents">
+		<ul>
+			<li>応答メッセージは、本体がクエリを受信した時点で作成するため、コントローラの読み込み時点の表示とは一致しない可能性があります。</li>
+		</ul>
+	</div>
+
+	<h3>*TRGコマンドを送信するとビープ音が鳴る</h3>
+	<div class="contents">
+		<ul>
+			<li>トリガ設定が内部トリガになっていませんか？</li>
+			<li><span><a href="../03/Right03.htm#*TRG" target="_self">*TRG</a></span>コマンドは外部トリガ設定のときのみ有効です。内部トリガ設定では実行エラーになります。</li>
+		</ul>
+	</div>
+
+</body>
+</html>

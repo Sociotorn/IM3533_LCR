@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<link rel="stylesheet" href="../../../Common/css/style.css" type="text/css">
+		<link rel="stylesheet" href="../../../Common/css/style05.css" type="text/css">
+		<title></title>
+</head>
+<body bgcolor="#fce5c6">
+
+	<h2>Troubleshooting</h2>
+	<div class="contents">
+		<p>If the instrument is malfunctioning, check to see if the symptoms correspond to any of the following.</p>
+		<p>The causes and measures for items without a mark are common to RS-232C, GP-IB, USB, and LAN.</p>
+	</div>
+
+	<h3>RS-232C/GP-IB is completely inoperable.</h3>
+	<div class="contents">
+		<ul>
+			<li>Is the cable connected properly?</li>
+			<li>Is the power of all connected devices turned ON?</li>
+			<li>Is the correct cable being used?</li>
+			<li>Are the communication conditions set properly?&nbsp;[RS-232C]</li>
+			<li>Is the address setting of the instrument set properly?&nbsp;[GP-IB]</li>
+			<li>Is the address the same as that of another device?&nbsp;[GP-IB]</li>
+			<li>Is the IP address the same as that of another network device?&nbsp;[LAN]</li>
+			<li>Has the USB driver been installed properly?&nbsp;[USB]</li>
+		</ul>
+	</div>
+
+	<h3>Sometimes a service request is not generated.&nbsp;[GP-IB]</h3>
+	<div class="contents">
+		<ul>
+			<li>Are the service request enable register and event status enable registers set properly?</li>
+			<li>SClear all of the event registers with the<span><a href="../03/Right03.htm#*CLS" target="_self">*CLS</a></span>command at the end of the SRQ
+process sub-routine. If the bit of an event is not cleared once, a service request is not generated for the same event.</li>
+		</ul>
+	</div>
+
+	<h3>The hardware handshake operation is abnormal.&nbsp;[RS-232C]</h3>
+	<div class="contents">
+		<ul>
+			<li>Is a cable with which CA (RTS) and CB (CTS) are shorted being used? Use a cable with which CA (RTS) and CB (CTS) are not shorted.</li>
+		</ul>
+	</div>
+
+</body>
+</html>
